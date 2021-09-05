@@ -15,11 +15,11 @@ struct ContentView: View {
   }
   
   func loadData() {
-    guard let url = URL(string: "https://discover.data.vic.gov.au/api/3/action/datastore_search?resource_id=bc71e010-253a-482a-bdbc-d65d1befe526") else {
+    guard let url = URL(string: "https://discover.data.vic.gov.au/api/3/action/datastore_search?resource_id=e3c72a49-6752-4158-82e6-116bea8f55c8&limit=200") else {
       return }
     
     URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-      guard let data = data, let decodedResponse = try? JSONDecoder().decode(LGAResponse.self, from: data) else {
+      guard let data = data, let decodedResponse = try? JSONDecoder().decode(PostcodeResponse.self, from: data) else {
         return }
       
       print(decodedResponse.result.records)

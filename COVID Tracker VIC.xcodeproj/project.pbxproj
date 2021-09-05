@@ -14,6 +14,7 @@
 		3B7FACBC26E4BA5600CB2A3C /* LGARecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */; };
 		3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */; };
 		3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */; };
+		3B7FACC626E4C05200CB2A3C /* PostcodeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGARecord.swift; sourceTree = "<group>"; };
 		3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateConverter.swift"; sourceTree = "<group>"; };
 		3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Manipulation.swift"; sourceTree = "<group>"; };
+		3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcodeRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */,
+				3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7FACAE26E4BA4100CB2A3C /* ContentView.swift in Sources */,
+				3B7FACC626E4C05200CB2A3C /* PostcodeRecord.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
