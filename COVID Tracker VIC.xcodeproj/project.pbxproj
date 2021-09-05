@@ -23,6 +23,8 @@
 		3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */; };
 		3B7FACD726E4E91F00CB2A3C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */; };
 		3B7FACD926E4E9D300CB2A3C /* EntryPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD826E4E9D300CB2A3C /* EntryPointView.swift */; };
+		3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDA26E4F38C00CB2A3C /* Risk.swift */; };
+		3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3B7FACD826E4E9D300CB2A3C /* EntryPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointView.swift; sourceTree = "<group>"; };
+		3B7FACDA26E4F38C00CB2A3C /* Risk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Risk.swift; sourceTree = "<group>"; };
+		3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexinit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			children = (
 				3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */,
 				3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */,
+				3B7FACDA26E4F38C00CB2A3C /* Risk.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */,
 				3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */,
 				3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */,
+				3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,9 +229,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7FACD126E4CBCC00CB2A3C /* APIRequestType.swift in Sources */,
+				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* LGAListView.swift in Sources */,
 				3B7FACC626E4C05200CB2A3C /* PostcodeRecord.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
+				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,
 				3B7FACCA26E4C3E400CB2A3C /* APICaller.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,

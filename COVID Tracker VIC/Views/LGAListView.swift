@@ -11,10 +11,20 @@ struct LGAListView: View {
   let records: [LGARecord]
   
   var body: some View {
-    List {
-      ForEach(records) { record in
-        Text(record.suburb)
+    NavigationView {
+      List {
+        ForEach(records) { record in
+          HStack() {
+            Text(record.suburb)
+              .font(.system(size: 20, weight: .semibold))
+            Spacer()
+            Text("\(record.newCasesInt) New Cases")
+              .font(.system(size: 15, weight: .bold))
+              .foregroundColor(record.riskLevel.promptColor)
+          }
+        }
       }
+      .navigationBarTitle(records[0].announcedDate.toHumanFriendlyString() + " 🦠 Update")
     }
   }
 }

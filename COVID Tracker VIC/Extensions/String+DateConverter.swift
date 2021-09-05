@@ -15,3 +15,12 @@ extension String {
     return dateFormatter.date(from: self)
   }
 }
+
+extension Date {
+  func toHumanFriendlyString() -> String {
+    let dateFormatter : DateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "d MMM"
+    dateFormatter.timeZone = TimeZone(identifier: "Australia/Melbourne")
+    return dateFormatter.string(from: self)
+  }
+}
