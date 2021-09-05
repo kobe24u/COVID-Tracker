@@ -15,7 +15,7 @@ struct PostcodeResult: Codable {
   let records: [PostcodeRecord]
 }
 
-struct PostcodeRecord: Codable {
+struct PostcodeRecord: Codable, Identifiable {
   let _id: Int
   let postcode: String
   let active: String
@@ -23,6 +23,7 @@ struct PostcodeRecord: Codable {
   let new: String
   private let data_date: String
   private let file_processed_date: String
+  var id: Int { _id }
   var recordedDate: Date { data_date.toDate() ?? Date.daysAgo(value: 1)}
   var announcedDate: Date { file_processed_date.toDate() ?? Date.today }
 }

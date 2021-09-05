@@ -11,7 +11,7 @@ import SwiftUI
 struct COVID_Tracker_VICApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          EntryPointView()
         }
     }
 }

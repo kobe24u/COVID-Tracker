@@ -8,19 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */; };
-		3B7FACAE26E4BA4100CB2A3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */; };
+		3B7FACAE26E4BA4100CB2A3C /* LGAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAD26E4BA4100CB2A3C /* LGAListView.swift */; };
 		3B7FACB026E4BA4300CB2A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */; };
 		3B7FACB326E4BA4300CB2A3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACB226E4BA4300CB2A3C /* Preview Assets.xcassets */; };
 		3B7FACBC26E4BA5600CB2A3C /* LGARecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */; };
 		3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */; };
 		3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */; };
 		3B7FACC626E4C05200CB2A3C /* PostcodeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */; };
+		3B7FACCA26E4C3E400CB2A3C /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC926E4C3E400CB2A3C /* APICaller.swift */; };
+		3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACCB26E4C65F00CB2A3C /* APIError.swift */; };
+		3B7FACCE26E4CAEA00CB2A3C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */; };
+		3B7FACD126E4CBCC00CB2A3C /* APIRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */; };
+		3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */; };
+		3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */; };
+		3B7FACD726E4E91F00CB2A3C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */; };
+		3B7FACD926E4E9D300CB2A3C /* EntryPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD826E4E9D300CB2A3C /* EntryPointView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B7FACA826E4BA4100CB2A3C /* COVID Tracker VIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Tracker VIC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_Tracker_VICApp.swift; sourceTree = "<group>"; };
-		3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B7FACAD26E4BA4100CB2A3C /* LGAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGAListView.swift; sourceTree = "<group>"; };
 		3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B7FACB226E4BA4300CB2A3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B7FACB426E4BA4300CB2A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +36,14 @@
 		3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateConverter.swift"; sourceTree = "<group>"; };
 		3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Manipulation.swift"; sourceTree = "<group>"; };
 		3B7FACC526E4C05200CB2A3C /* PostcodeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcodeRecord.swift; sourceTree = "<group>"; };
+		3B7FACC926E4C3E400CB2A3C /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		3B7FACCB26E4C65F00CB2A3C /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestType.swift; sourceTree = "<group>"; };
+		3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Converter.swift"; sourceTree = "<group>"; };
+		3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		3B7FACD826E4E9D300CB2A3C /* EntryPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPointView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,8 @@
 		3B7FACAA26E4BA4100CB2A3C /* COVID Tracker VIC */ = {
 			isa = PBXGroup;
 			children = (
+				3B7FACCF26E4CBAD00CB2A3C /* Extensions */,
+				3B7FACC726E4C3D300CB2A3C /* Networking */,
 				3B7FACBD26E4BA9400CB2A3C /* Helpers */,
 				3B7FACBA26E4BA4A00CB2A3C /* Model */,
 				3B7FACC126E4BB3F00CB2A3C /* App */,
@@ -91,8 +109,6 @@
 		3B7FACBD26E4BA9400CB2A3C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */,
-				3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -108,9 +124,33 @@
 		3B7FACC226E4BB5200CB2A3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */,
+				3B7FACAD26E4BA4100CB2A3C /* LGAListView.swift */,
+				3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */,
+				3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */,
+				3B7FACD826E4E9D300CB2A3C /* EntryPointView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3B7FACC726E4C3D300CB2A3C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACC926E4C3E400CB2A3C /* APICaller.swift */,
+				3B7FACCB26E4C65F00CB2A3C /* APIError.swift */,
+				3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */,
+				3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3B7FACCF26E4CBAD00CB2A3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */,
+				3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */,
+				3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,11 +222,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7FACAE26E4BA4100CB2A3C /* ContentView.swift in Sources */,
+				3B7FACD126E4CBCC00CB2A3C /* APIRequestType.swift in Sources */,
+				3B7FACAE26E4BA4100CB2A3C /* LGAListView.swift in Sources */,
 				3B7FACC626E4C05200CB2A3C /* PostcodeRecord.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
+				3B7FACCA26E4C3E400CB2A3C /* APICaller.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
+				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
+				3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */,
+				3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
+				3B7FACCE26E4CAEA00CB2A3C /* APIService.swift in Sources */,
+				3B7FACD726E4E91F00CB2A3C /* LoadingView.swift in Sources */,
+				3B7FACD926E4E9D300CB2A3C /* EntryPointView.swift in Sources */,
 				3B7FACBC26E4BA5600CB2A3C /* LGARecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
