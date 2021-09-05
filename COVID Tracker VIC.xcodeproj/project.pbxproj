@@ -11,6 +11,9 @@
 		3B7FACAE26E4BA4100CB2A3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */; };
 		3B7FACB026E4BA4300CB2A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */; };
 		3B7FACB326E4BA4300CB2A3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACB226E4BA4300CB2A3C /* Preview Assets.xcassets */; };
+		3B7FACBC26E4BA5600CB2A3C /* LGARecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */; };
+		3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */; };
+		3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B7FACB226E4BA4300CB2A3C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B7FACB426E4BA4300CB2A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGARecord.swift; sourceTree = "<group>"; };
+		3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateConverter.swift"; sourceTree = "<group>"; };
+		3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Manipulation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,10 @@
 		3B7FACAA26E4BA4100CB2A3C /* COVID Tracker VIC */ = {
 			isa = PBXGroup;
 			children = (
-				3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */,
-				3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */,
+				3B7FACBD26E4BA9400CB2A3C /* Helpers */,
+				3B7FACBA26E4BA4A00CB2A3C /* Model */,
+				3B7FACC126E4BB3F00CB2A3C /* App */,
+				3B7FACC226E4BB5200CB2A3C /* Views */,
 				3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */,
 				3B7FACB426E4BA4300CB2A3C /* Info.plist */,
 				3B7FACB126E4BA4300CB2A3C /* Preview Content */,
@@ -67,6 +75,39 @@
 				3B7FACB226E4BA4300CB2A3C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B7FACBA26E4BA4A00CB2A3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACBB26E4BA5600CB2A3C /* LGARecord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3B7FACBD26E4BA9400CB2A3C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */,
+				3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B7FACC126E4BB3F00CB2A3C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3B7FACC226E4BB5200CB2A3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACAD26E4BA4100CB2A3C /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7FACAE26E4BA4100CB2A3C /* ContentView.swift in Sources */,
+				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
+				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
+				3B7FACBC26E4BA5600CB2A3C /* LGARecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
