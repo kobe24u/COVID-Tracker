@@ -19,14 +19,15 @@ class APICaller: ObservableObject {
   }
   
   func fetchLGARecords() {
-//    APIService().fetchRecords(of: .LGA)
-//      .receive(on: DispatchQueue.main)
-//      .sink { [weak self] completion in
-//      switch completion {
-//      case .finished: break
-//      case .failure(let error): self?.errorMessage = error.description
-//      }
-//    } receiveValue: { [weak self] in self?.lGARecords = $0 }
-//    .store(in: &cancellables)
+    isLoading = true
+    APIService().fetchLGARecords()
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] completion in
+      switch completion {
+      case .finished: self?.isLoading = false
+      case .failure(let error): self?.errorMessage = error.description
+      }
+    } receiveValue: { [weak self] in self?.lGARecords = $0 }
+    .store(in: &cancellables)
   }
 }

@@ -9,15 +9,14 @@ import Combine
 import Foundation
 
 struct APIService {
-  func fetchRecords<T: Codable>(of type: RequestType) -> AnyPublisher<[T], APIError> {
-    guard let url = URL(string: type.apiEndpoint) else { return Empty().eraseToAnyPublisher() }
+  func fetchLGARecords() -> AnyPublisher<[LGARecord], APIError> {
+    guard let url = URL(string: RequestType.LGA.apiEndpoint) else { return Empty().eraseToAnyPublisher() }
     
     return URLSession.shared.dataTaskPublisher(for: url)
         .map(\.data)
-        .decode(type: [T].self, decoder: JSONDecoder())
-        .mapError{ error in
-          error.toAPIResponseError()
-        }
+        .decode(type: LGAResponse.self, decoder: JSONDecoder())
+        .map{ $0.result.records }
+        .mapError{ $0.toAPIResponseError() }
        .eraseToAnyPublisher()
   }
 }
