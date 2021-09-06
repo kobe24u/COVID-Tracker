@@ -18,6 +18,7 @@ struct RecordsListView: View {
   var body: some View {
     NavigationView {
       VStack {
+        // This can be replaced with searchable modifier when iOS 15 is out
         SearchBar(searchTerm: $searchItem)
         ListView(searchItem: $searchItem,
                  dictionary: apiCaller.lgaRecordsSectionDictionary)
@@ -39,7 +40,6 @@ private struct ListView: View {
               }
           }
       }
-      
     }.listStyle(GroupedListStyle())
   }
   
