@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct COVID_Tracker_VICApp: App {
-    var body: some Scene {
-        WindowGroup {
-          EntryPointView()
-        }
-    }
+  @StateObject var apiCaller = APICaller()
+  
+  var body: some Scene {
+      WindowGroup {
+        RecordsContentView(apiCaller: apiCaller)
+      }
+  }
 }

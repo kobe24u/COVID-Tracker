@@ -9,19 +9,19 @@ import SwiftUI
 
 enum Risk {
   case none
-  case Low
-  case Medium
-  case High
-  case Overwhelmed
+  case low
+  case medium
+  case high
+  case overwhelmed
   
   // Reference: https://www.bbc.com/news/explainers-52634739
   static func riskAssessment(of newCases: Int) -> Risk {
     switch newCases {
     case 0: return none
-    case 1...10: return Low
-    case 11...30: return Medium
-    case 31...80: return High
-    case 81...: return Overwhelmed
+    case 1...10: return low
+    case 11...30: return medium
+    case 31...80: return high
+    case 81...: return overwhelmed
     default: fatalError("Invalid int value")
     }
   }
@@ -29,10 +29,10 @@ enum Risk {
   var promptColor: Color {
     switch self {
     case .none: return Color(hex: "#578300")
-    case .Low: return Color(hex: "#06BD8E")
-    case .Medium: return Color(hex: "#F9AB17")
-    case .High: return Color(hex: "#D56906")
-    case .Overwhelmed: return Color(hex: "#990000")
+    case .low: return Color(hex: "#06BD8E")
+    case .medium: return Color(hex: "#F9AB17")
+    case .high: return Color(hex: "#D56906")
+    case .overwhelmed: return Color(hex: "#990000")
     }
   }
 }
