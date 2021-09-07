@@ -13,4 +13,18 @@ extension Date {
   static func daysAgo(value: Int) -> Date {
     Calendar.current.date(byAdding: .day, value: -value, to: today) ?? today
   }
+  
+  func toFullDateFormat() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE, MMMM dd"
+    return dateFormatter.string(from: self)
+  }
+  
+  
+  func toWeekDayFormat() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.doesRelativeDateFormatting = true
+    return dateFormatter.string(from: self)
+  }
 }

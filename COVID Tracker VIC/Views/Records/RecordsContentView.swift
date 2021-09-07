@@ -8,20 +8,17 @@
 import SwiftUI
 
 struct RecordsContentView: View {
-  @StateObject var apiCaller: APICaller
+  @EnvironmentObject var recordsProvider: RecordsProvider
   
   var body: some View {
     Group {
-      if apiCaller.isLoading {
+      if recordsProvider.isLoading {
         LoadingView()
-      } else if apiCaller.errorMessage != nil {
-        ErrorView(apiCaller: apiCaller)
+      } else if recordsProvider.errorMessage != nil {
+        ErrorView()
       } else {
-        RecordsListView(apiCaller: apiCaller)
+        RecordsListView()
       }
-    }
-    .onAppear {
-      apiCaller.fetchLGARecords()
     }
   }
 }

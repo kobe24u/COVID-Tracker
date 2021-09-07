@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ErrorView: View {
-  @ObservedObject var apiCaller: APICaller
+  @EnvironmentObject var recordsProvider: RecordsProvider
   
   var body: some View {
     VStack {
-      Text("🦠, \(apiCaller.errorMessage ?? "")")
+      Text("🦠, \(recordsProvider.errorMessage ?? "")")
     }
   }
 }

@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct COVID_Tracker_VICApp: App {
-  @StateObject var apiCaller = APICaller()
+  @StateObject var recordsProvider = RecordsProvider(api: APIService())
   
   var body: some Scene {
       WindowGroup {
-        RecordsContentView(apiCaller: apiCaller)
+        RootTabView()
+          .onAppear { recordsProvider.fetchLGARecords() }
+          .environmentObject(recordsProvider)
       }
   }
 }

@@ -8,15 +8,16 @@
 import Combine
 import Foundation
 
-struct APIService {
-  func fetchRecords(of type: RecordType) -> AnyPublisher<[Record], APIError> {
-    guard let url = URL(string: type.apiEndpoint) else { return Empty().eraseToAnyPublisher() }
-    
+class APIService {
+  private var cancellables: Set<AnyCancellable> = []
+  
+  func fetch<T: Decodable>(_ url: URL?) -> AnyPublisher<T, APIError> {
+    guard let url = url else { return Empty().eraseToAnyPublisher() }
     return URLSession.shared.dataTaskPublisher(for: url)
+        .receive(on: DispatchQueue.main)
         .map(\.data)
-        .decode(type: Response.self, decoder: JSONDecoder())
-        .map{ $0.result.records }
+        .decode(type: T.self, decoder: JSONDecoder())
         .mapError{ $0.toAPIResponseError() }
-       .eraseToAnyPublisher()
+        .eraseToAnyPublisher()
   }
 }

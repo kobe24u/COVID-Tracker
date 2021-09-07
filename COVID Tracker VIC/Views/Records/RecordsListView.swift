@@ -9,19 +9,21 @@ import SwiftUI
 
 struct RecordsListView: View {
   @State var searchItem = ""
-  @StateObject var apiCaller: APICaller
+  @EnvironmentObject var recordsProvider: RecordsProvider
   private var navBarTitle: String {
-    guard let latestAnnouncementDate = apiCaller.records.first?.announcedDate else { return "" }
-    return latestAnnouncementDate.toHumanFriendlyString() + " 🦠 Update"
+    // The date API returned has not been updated, still showing yesterday, data is new, but date is not :(
+//    guard let latestAnnouncementDate = recordsProvider.latestDataDate else { return "" }
+//    return latestAnnouncementDate.toHumanFriendlyString() + " 🦠 Update"
+    "🦠 Case Details "
   }
   
   var body: some View {
     NavigationView {
       VStack {
-        // This can be replaced with searchable modifier when iOS 15 is out
+        //TODO This can be replaced with searchable modifier when Swift 5.5 is out
         SearchBar(searchTerm: $searchItem)
         ListView(searchItem: $searchItem,
-                 dictionary: apiCaller.lgaRecordsSectionDictionary)
+                 dictionary: recordsProvider.lgaRecordsSectionDictionary)
       }
       .navigationBarTitle(navBarTitle)
     }
@@ -32,6 +34,7 @@ private struct ListView: View {
   @Binding var searchItem: String
   let dictionary: Dictionary<String, [Record]>
   var body: some View {
+    //TODO Add the Refreshable modifier when Swift 5.5 is out
     List {
       ForEach(dictionary.keys.sorted(), id:\.self) { key in
         if let filteredRecords = filterRecords(by: key), !filteredRecords.isEmpty {
@@ -56,7 +59,7 @@ private struct ListRow: View {
   var body: some View {
     HStack() {
       Text(record.lgaString)
-        .font(.system(size: 20, weight: .semibold))
+        .font(.system(size: 18, weight: .semibold))
       Spacer()
       Text("\(record.newCasesInt) New Cases")
         .font(.system(size: 15, weight: .bold))

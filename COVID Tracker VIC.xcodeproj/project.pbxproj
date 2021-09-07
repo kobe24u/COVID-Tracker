@@ -14,16 +14,21 @@
 		3B7FACBC26E4BA5600CB2A3C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBB26E4BA5600CB2A3C /* Record.swift */; };
 		3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */; };
 		3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */; };
-		3B7FACCA26E4C3E400CB2A3C /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC926E4C3E400CB2A3C /* APICaller.swift */; };
+		3B7FACCA26E4C3E400CB2A3C /* RecordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACC926E4C3E400CB2A3C /* RecordsProvider.swift */; };
 		3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACCB26E4C65F00CB2A3C /* APIError.swift */; };
 		3B7FACCE26E4CAEA00CB2A3C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */; };
-		3B7FACD126E4CBCC00CB2A3C /* APIRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */; };
+		3B7FACD126E4CBCC00CB2A3C /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD026E4CBCC00CB2A3C /* RecordType.swift */; };
 		3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */; };
 		3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */; };
 		3B7FACD726E4E91F00CB2A3C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */; };
 		3B7FACD926E4E9D300CB2A3C /* RecordsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD826E4E9D300CB2A3C /* RecordsContentView.swift */; };
 		3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDA26E4F38C00CB2A3C /* Risk.swift */; };
 		3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */; };
+		3B95B79D26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */; };
+		3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7A026E720D000B2B4AC /* RootTabView.swift */; };
+		3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7A326E7213200B2B4AC /* OverviewTabView.swift */; };
+		3B95B7A626E7333400B2B4AC /* OverviewContentBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7A526E7333400B2B4AC /* OverviewContentBlockView.swift */; };
+		3B95B7AF26E7641700B2B4AC /* NumberBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7AE26E7641700B2B4AC /* NumberBlock.swift */; };
 		3B9D87A726E602DB00A1EABF /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9D87A626E602DB00A1EABF /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,16 +42,21 @@
 		3B7FACBB26E4BA5600CB2A3C /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		3B7FACBE26E4BAA300CB2A3C /* String+DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateConverter.swift"; sourceTree = "<group>"; };
 		3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Manipulation.swift"; sourceTree = "<group>"; };
-		3B7FACC926E4C3E400CB2A3C /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		3B7FACC926E4C3E400CB2A3C /* RecordsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsProvider.swift; sourceTree = "<group>"; };
 		3B7FACCB26E4C65F00CB2A3C /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestType.swift; sourceTree = "<group>"; };
+		3B7FACD026E4CBCC00CB2A3C /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Converter.swift"; sourceTree = "<group>"; };
 		3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3B7FACD826E4E9D300CB2A3C /* RecordsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsContentView.swift; sourceTree = "<group>"; };
 		3B7FACDA26E4F38C00CB2A3C /* Risk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Risk.swift; sourceTree = "<group>"; };
 		3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexinit.swift"; sourceTree = "<group>"; };
+		3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewHeaderBlock.swift; sourceTree = "<group>"; };
+		3B95B7A026E720D000B2B4AC /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		3B95B7A326E7213200B2B4AC /* OverviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTabView.swift; sourceTree = "<group>"; };
+		3B95B7A526E7333400B2B4AC /* OverviewContentBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewContentBlockView.swift; sourceTree = "<group>"; };
+		3B95B7AE26E7641700B2B4AC /* NumberBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberBlock.swift; sourceTree = "<group>"; };
 		3B9D87A626E602DB00A1EABF /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,14 +90,13 @@
 		3B7FACAA26E4BA4100CB2A3C /* COVID Tracker VIC */ = {
 			isa = PBXGroup;
 			children = (
-				3B7FACCF26E4CBAD00CB2A3C /* Extensions */,
-				3B7FACC726E4C3D300CB2A3C /* Networking */,
-				3B7FACBD26E4BA9400CB2A3C /* Helpers */,
-				3B7FACBA26E4BA4A00CB2A3C /* Model */,
 				3B7FACC126E4BB3F00CB2A3C /* App */,
+				3B7FACC726E4C3D300CB2A3C /* Networking */,
+				3B7FACBA26E4BA4A00CB2A3C /* Model */,
 				3B7FACC226E4BB5200CB2A3C /* Views */,
-				3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */,
-				3B7FACB426E4BA4300CB2A3C /* Info.plist */,
+				3B95B79F26E71FE100B2B4AC /* Supporting files */,
+				3B7FACCF26E4CBAD00CB2A3C /* Extensions */,
+				3B95B79E26E71FBF00B2B4AC /* Resources */,
 				3B7FACB126E4BA4300CB2A3C /* Preview Content */,
 			);
 			path = "COVID Tracker VIC";
@@ -110,13 +119,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3B7FACBD26E4BA9400CB2A3C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		3B7FACC126E4BB3F00CB2A3C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				3B9D87A826E60D6F00A1EABF /* Common */,
+				3B95B7A226E7211500B2B4AC /* Overview */,
 				3B9D87A926E60D7B00A1EABF /* Records */,
+				3B95B7A026E720D000B2B4AC /* RootTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,10 +141,10 @@
 		3B7FACC726E4C3D300CB2A3C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3B7FACC926E4C3E400CB2A3C /* APICaller.swift */,
+				3B7FACC926E4C3E400CB2A3C /* RecordsProvider.swift */,
 				3B7FACCB26E4C65F00CB2A3C /* APIError.swift */,
 				3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */,
-				3B7FACD026E4CBCC00CB2A3C /* APIRequestType.swift */,
+				3B7FACD026E4CBCC00CB2A3C /* RecordType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -156,12 +160,39 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		3B95B79E26E71FBF00B2B4AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B95B79F26E71FE100B2B4AC /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				3B7FACB426E4BA4300CB2A3C /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		3B95B7A226E7211500B2B4AC /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				3B95B7A326E7213200B2B4AC /* OverviewTabView.swift */,
+				3B95B7A526E7333400B2B4AC /* OverviewContentBlockView.swift */,
+				3B95B7AE26E7641700B2B4AC /* NumberBlock.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
 		3B9D87A826E60D6F00A1EABF /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				3B7FACD426E4E79D00CB2A3C /* ErrorView.swift */,
 				3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */,
 				3B9D87A626E602DB00A1EABF /* SearchBar.swift */,
+				3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -244,22 +275,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7FACD126E4CBCC00CB2A3C /* APIRequestType.swift in Sources */,
+				3B7FACD126E4CBCC00CB2A3C /* RecordType.swift in Sources */,
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
+				3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
+				3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */,
 				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,
-				3B7FACCA26E4C3E400CB2A3C /* APICaller.swift in Sources */,
+				3B7FACCA26E4C3E400CB2A3C /* RecordsProvider.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
+				3B95B7A626E7333400B2B4AC /* OverviewContentBlockView.swift in Sources */,
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
 				3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */,
 				3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
+				3B95B79D26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift in Sources */,
 				3B7FACCE26E4CAEA00CB2A3C /* APIService.swift in Sources */,
 				3B7FACD726E4E91F00CB2A3C /* LoadingView.swift in Sources */,
 				3B7FACD926E4E9D300CB2A3C /* RecordsContentView.swift in Sources */,
 				3B9D87A726E602DB00A1EABF /* SearchBar.swift in Sources */,
 				3B7FACBC26E4BA5600CB2A3C /* Record.swift in Sources */,
+				3B95B7AF26E7641700B2B4AC /* NumberBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +427,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Tracker VIC/Preview Content\"";
 				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "COVID Tracker VIC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/COVID Tracker VIC/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,7 +449,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"COVID Tracker VIC/Preview Content\"";
 				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "COVID Tracker VIC/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/COVID Tracker VIC/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
