@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct SegmentedPicker: View {
-  @Binding var recordType: RecordType
+  @EnvironmentObject var recordsProvider: RecordsProvider
   var body: some View {
-    Picker("Current selected record type", selection: $recordType) {
+    Picker("Current selected record type", selection: $recordsProvider.recordType) {
       ForEach(RecordType.allCases, id: \.self) {
         Text($0.rawValue)
+      }
+    }.onChange(of: recordsProvider.recordType) { value in
+      if value == .postcode && recordsProvider.postCodeRecords.isEmpty {
+        recordsProvider.fetchRecords(of: .postcode)
       }
     }
     .pickerStyle(SegmentedPickerStyle())

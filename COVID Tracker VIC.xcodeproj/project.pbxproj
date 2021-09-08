@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */; };
+		3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A726E8C49C00E993D7 /* ListRow.swift */; };
+		3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A926E8C50400E993D7 /* LGAListView.swift */; };
+		3B5C58AC26E8C54E00E993D7 /* PostcodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */; };
 		3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */; };
 		3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */; };
 		3B7FACB026E4BA4300CB2A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
+		3B5C58A726E8C49C00E993D7 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		3B5C58A926E8C50400E993D7 /* LGAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGAListView.swift; sourceTree = "<group>"; };
+		3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcodeListView.swift; sourceTree = "<group>"; };
 		3B7FACA826E4BA4100CB2A3C /* COVID Tracker VIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Tracker VIC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_Tracker_VICApp.swift; sourceTree = "<group>"; };
 		3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListView.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 				3B9D87A626E602DB00A1EABF /* SearchBar.swift */,
 				3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */,
 				3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */,
+				3B5C58A726E8C49C00E993D7 /* ListRow.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -204,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */,
+				3B5C58A926E8C50400E993D7 /* LGAListView.swift */,
+				3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */,
 				3B7FACD826E4E9D300CB2A3C /* RecordsContentView.swift */,
 			);
 			path = Records;
@@ -278,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5C58AC26E8C54E00E993D7 /* PostcodeListView.swift in Sources */,
 				3B7FACD126E4CBCC00CB2A3C /* RecordType.swift in Sources */,
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
@@ -299,7 +309,9 @@
 				3B7FACD926E4E9D300CB2A3C /* RecordsContentView.swift in Sources */,
 				3B9D87A726E602DB00A1EABF /* SearchBar.swift in Sources */,
 				3B7FACBC26E4BA5600CB2A3C /* Record.swift in Sources */,
+				3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */,
 				3B95B7AF26E7641700B2B4AC /* NumberBlock.swift in Sources */,
+				3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,9 +12,7 @@ struct RecordsContentView: View {
   
   var body: some View {
     Group {
-      if recordsProvider.isLoading {
-        LoadingView()
-      } else if recordsProvider.errorMessage != nil {
+      if recordsProvider.errorMessage != nil {
         ErrorView()
       } else {
         RecordsListView()
