@@ -52,7 +52,5 @@ class RecordsProvider: ObservableObject {
   private func calculateTotalCaseNumbers() {
     newCases = records.map { $0.newCasesInt }.reduce(0, +)
     activeCases = records.map { $0.activeCasesInt }.reduce(0, +)
-    print(newCases)
-    print(activeCases)
   }
 }

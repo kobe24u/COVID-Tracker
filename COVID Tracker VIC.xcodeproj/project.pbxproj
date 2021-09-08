@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */; };
 		3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */; };
 		3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */; };
 		3B7FACB026E4BA4300CB2A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B7FACAF26E4BA4300CB2A3C /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		3B7FACA826E4BA4100CB2A3C /* COVID Tracker VIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "COVID Tracker VIC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7FACAB26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COVID_Tracker_VICApp.swift; sourceTree = "<group>"; };
 		3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsListView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */,
 				3B9D87A626E602DB00A1EABF /* SearchBar.swift */,
 				3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */,
+				3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
 				3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */,
+				3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
 				3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */,
 				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,

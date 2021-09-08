@@ -17,11 +17,15 @@ struct RecordsListView: View {
     "🦠 Case Details "
   }
   
+  @State private var recordType: RecordType = .lga
+  
+  
   var body: some View {
     NavigationView {
-      VStack {
+      VStack(spacing: 16) {
         //TODO This can be replaced with searchable modifier when Swift 5.5 is out
         SearchBar(searchTerm: $searchItem)
+        SegmentedPicker(recordType: $recordType)
         ListView(searchItem: $searchItem,
                  dictionary: recordsProvider.lgaRecordsSectionDictionary)
       }

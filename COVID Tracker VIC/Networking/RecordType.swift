@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum RecordType {
-  case lga
-  case postcode
+enum RecordType: String, CaseIterable {
+  case lga = "LGA"
+  case postcode = "Postcode"
 }
 
 extension RecordType {
