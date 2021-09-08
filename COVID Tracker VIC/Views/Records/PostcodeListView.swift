@@ -11,14 +11,27 @@ struct PostcodeListView: View {
   @Binding var searchItem: String
   @EnvironmentObject var recordsProvider: RecordsProvider
   var filteredPostcodeList: [Record] {
-    recordsProvider.postCodeRecords.filter {
+    recordsProvider.postcodeRecords.filter {
             searchItem.isEmpty ? true : $0.postCodeString.starts(with: searchItem)
     }
   }
   var body: some View {
     //TODO Add the Refreshable modifier when Swift 5.5 is out
-    List(filteredPostcodeList) {
-      ListRow(record: $0, titleString: $0.postCodeString)
-    }.listStyle(PlainListStyle())
+    ScrollView {
+      LazyVStack {
+        ForEach(filteredPostcodeList.indices, id: \.self) { index in
+          let record = filteredPostcodeList[index]
+          ListRow(record: record, titleString: record.postCodeString)
+            .onAppear {
+              if index == filteredPostcodeList.count - 5 &&
+                    filteredPostcodeList.count == recordsProvider.postcodeRecords.count && recordsProvider.postcodeListFull == false {
+                recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+              }
+          }
+          .padding([.leading, .trailing], 16)
+          Divider()
+        }
+      }
+    }
   }
 }

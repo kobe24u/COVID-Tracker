@@ -13,6 +13,11 @@ struct Response: Codable {
 
 struct Result: Codable {
   let records: [Record]
+  let _links: Link
+}
+
+struct Link: Codable {
+  let next: String
 }
 
 struct Record: Codable, Identifiable {

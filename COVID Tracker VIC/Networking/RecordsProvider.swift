@@ -7,15 +7,19 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 class RecordsProvider: ObservableObject {
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
-  @Published var postCodeRecords: [Record] = []
+  @Published var postcodeRecords: [Record] = []
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
   @Published var newCases: Int = 0
   @Published var activeCases: Int = 0
   @Published var recordType: RecordType = .lga
+  @Published var nextPostcodeRequestURL: URL? = RecordType.postcode.apiEndpoint
+  @Published var postcodeListFull = false
+  
   private let api: APIService
   private var cancellables: Set<AnyCancellable> = []
   
@@ -23,9 +27,9 @@ class RecordsProvider: ObservableObject {
     self.api = api
   }
   
-  func fetchRecords(of type: RecordType = .lga) {
+  func fetchRecords(of type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint) {
     isLoading = true
-    let sub: AnyPublisher<Response, APIError> = api.fetch(type.apiEndpoint)
+    let sub: AnyPublisher<Response, APIError> = api.fetch(url)
     sub
     .sink { [weak self] completion in
       self?.isLoading = false
@@ -39,7 +43,9 @@ class RecordsProvider: ObservableObject {
         self?.lgaRecordsSectionDictionary = self?.getSectionedRecordsDictionary(records: records) ?? [:]
         self?.calculateNumbers(of: records)
       } else {
-        self?.postCodeRecords = records
+        self?.nextPostcodeRequestURL = URL(string: baseURLString + $0.result._links.next)
+        self?.postcodeRecords.append(contentsOf: records)
+        if records.count < 100 { self?.postcodeListFull = true }
       }
     }
     .store(in: &cancellables)

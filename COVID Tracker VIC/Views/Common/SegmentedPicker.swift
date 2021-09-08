@@ -15,8 +15,8 @@ struct SegmentedPicker: View {
         Text($0.rawValue)
       }
     }.onChange(of: recordsProvider.recordType) { value in
-      if value == .postcode && recordsProvider.postCodeRecords.isEmpty {
-        recordsProvider.fetchRecords(of: .postcode)
+      if value == .postcode && recordsProvider.postcodeRecords.isEmpty {
+        recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
       }
     }
     .pickerStyle(SegmentedPickerStyle())
