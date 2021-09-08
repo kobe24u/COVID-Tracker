@@ -31,6 +31,7 @@ struct Record: Codable, Identifiable {
   var newCasesInt: Int { Int(new) ?? 0 }
   var activeCasesInt: Int { Int(active) ?? 0 }
   var lgaString: String { LGADisplay ?? LGA ?? "" }
+  var postCodeString: String { postcode ?? "" }
   var recordedDate: Date { data_date.toDate() ?? Date.daysAgo(value: 1)}
   var announcedDate: Date { file_processed_date.toDate() ?? Date.today }
   var riskLevel: Risk { Risk.riskAssessment(of: newCasesInt) } 

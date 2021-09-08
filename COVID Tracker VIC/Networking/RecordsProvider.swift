@@ -10,6 +10,7 @@ import Foundation
 
 class RecordsProvider: ObservableObject {
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
+  @Published var postCodeRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
   @Published var newCases: Int = 0
@@ -22,9 +23,9 @@ class RecordsProvider: ObservableObject {
     self.api = api
   }
   
-  func fetchLGARecords() {
+  func fetchRecords(of type: RecordType) {
     isLoading = true
-    let sub: AnyPublisher<Response, APIError> = api.fetch(RecordType.lga.apiEndpoint)
+    let sub: AnyPublisher<Response, APIError> = api.fetch(type.apiEndpoint)
     sub
     .sink { [weak self] completion in
       self?.isLoading = false
@@ -34,18 +35,22 @@ class RecordsProvider: ObservableObject {
       }
     } receiveValue: { [weak self] in
       self?.records = $0.result.records
-      self?.lgaRecordsSectionDictionary = self?.getSectionedLgaRecordsDictionary() ?? [:]
-      self?.calculateTotalCaseNumbers()
+      if type == .lga {
+        self?.lgaRecordsSectionDictionary = self?.getSectionedRecordsDictionary(type: type) ?? [:]
+        self?.calculateTotalCaseNumbers()
+      } else {
+        self?.postCodeRecordsSectionDictionary = self?.getSectionedRecordsDictionary(type: type) ?? [:]
+      }
     }
     .store(in: &cancellables)
   }
   
-  private func getSectionedLgaRecordsDictionary() -> Dictionary<String, [Record]> {
+  private func getSectionedRecordsDictionary(type: RecordType) -> Dictionary<String, [Record]> {
     return Dictionary(grouping: records, by: {
-        let lgaString = $0.lgaString
-        let normalizedlgaString = lgaString.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
-        let firstChar = String(normalizedlgaString.first!).uppercased()
-        return firstChar
+      let searchString = type == .lga ? $0.lgaString : $0.postCodeString
+      let normalizedlgaString = searchString.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+      let firstChar = String(normalizedlgaString.first!).uppercased()
+      return firstChar
     })
   }
   

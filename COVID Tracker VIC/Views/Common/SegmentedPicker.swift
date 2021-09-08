@@ -16,5 +16,6 @@ struct SegmentedPicker: View {
       }
     }
     .pickerStyle(SegmentedPickerStyle())
+    .padding([.leading, .trailing], 16)
   }
 }

@@ -14,7 +14,7 @@ struct COVID_Tracker_VICApp: App {
   var body: some Scene {
       WindowGroup {
         RootTabView()
-          .onAppear { recordsProvider.fetchLGARecords() }
+          .onAppear { recordsProvider.fetchRecords(of: .lga) }
           .environmentObject(recordsProvider)
       }
   }

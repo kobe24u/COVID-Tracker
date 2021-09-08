@@ -26,17 +26,21 @@ struct RecordsListView: View {
         //TODO This can be replaced with searchable modifier when Swift 5.5 is out
         SearchBar(searchTerm: $searchItem)
         SegmentedPicker(recordType: $recordType)
-        ListView(searchItem: $searchItem,
-                 dictionary: recordsProvider.lgaRecordsSectionDictionary)
+        ListView(searchItem: $searchItem, recordType: $recordType)
       }
       .navigationBarTitle(navBarTitle)
     }
+    .environmentObject(recordsProvider)
   }
 }
 
 private struct ListView: View {
   @Binding var searchItem: String
-  let dictionary: Dictionary<String, [Record]>
+  @Binding var recordType: RecordType
+  @EnvironmentObject var recordsProvider: RecordsProvider
+  var dictionary: Dictionary<String, [Record]> {
+    recordType == .lga ? recordsProvider.lgaRecordsSectionDictionary : [:]
+  }
   var body: some View {
     //TODO Add the Refreshable modifier when Swift 5.5 is out
     List {
