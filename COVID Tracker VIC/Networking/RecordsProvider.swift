@@ -45,7 +45,10 @@ class RecordsProvider: ObservableObject {
       } else {
         self?.nextPostcodeRequestURL = URL(string: baseURLString + $0.result._links.next)
         self?.postcodeRecords.append(contentsOf: records)
-        if records.count < 100 { self?.postcodeListFull = true }
+        self?.postcodeRecords.sort { $0.postCodeString < $1.postCodeString }
+        guard let currentPostcodeRecordsCount = self?.postcodeRecords.count,
+              currentPostcodeRecordsCount >= $0.result.total else { return }
+        self?.postcodeListFull = true
       }
     }
     .store(in: &cancellables)

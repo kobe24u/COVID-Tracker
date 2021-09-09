@@ -14,6 +14,7 @@ struct Response: Codable {
 struct Result: Codable {
   let records: [Record]
   let _links: Link
+  let total: Int
 }
 
 struct Link: Codable {
