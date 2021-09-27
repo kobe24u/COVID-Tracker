@@ -10,11 +10,16 @@ import SwiftUI
 struct OverviewTabView: View {
   @EnvironmentObject var recordsProvider: RecordsProvider
   var body: some View {
-    VStack {
-      NavigationViewHeaderBlock()
-      OverviewContentBlockView(newCaseNum: recordsProvider.newCases, totalCaseNum: recordsProvider.activeCases, isLoading: $recordsProvider.isLoading)
-      Spacer()
-    }
+      VStack {
+        NavigationViewHeaderBlock()
+        OverviewContentBlockView(newCaseNum: recordsProvider.newCases, totalCaseNum: recordsProvider.activeCases, isLoading: $recordsProvider.isLoading)
+        Spacer()
+      }
   }
 }
 
+struct OverviewTabView_Previews: PreviewProvider {
+    static var previews: some View {
+      OverviewTabView().environmentObject(RecordsProvider(api: APIService())).previewInterfaceOrientation(.portrait)
+    }
+}

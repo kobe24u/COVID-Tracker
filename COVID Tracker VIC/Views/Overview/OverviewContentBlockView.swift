@@ -25,12 +25,10 @@ struct OverviewContentBlockView: View {
         footer
       }
       .padding()
-      .frame(maxWidth: .infinity, alignment: .leading)
     }
-    .frame(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.width * 1.1)
     .background(Color(UIColor.systemGray2))
     .clipShape(RoundedRectangle(cornerRadius: 20))
-    .padding(.vertical, 8)
+    .padding(.all, 16)
   }
   
   private var header: some View {
@@ -62,4 +60,10 @@ struct OverviewContentBlockView: View {
   }
 }
 
+struct OverviewContentBlockView_Previews: PreviewProvider {
+    static var previews: some View {
+      OverviewContentBlockView(newCaseNum: 12, totalCaseNum: 12, isLoading: .constant(false))
+.previewInterfaceOrientation(.portrait)
+    }
+}
 

@@ -25,6 +25,7 @@ struct RecordsListView: View {
       }
       .navigationBarTitle("🦠 Case Details ")
     }
+    .navigationViewStyle(StackNavigationViewStyle())
     .environmentObject(recordsProvider)
   }
 }
