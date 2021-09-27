@@ -16,7 +16,10 @@ struct SegmentedPicker: View {
       }
     }.onChange(of: recordsProvider.recordType) { value in
       if value == .postcode && recordsProvider.postcodeRecords.isEmpty {
-        recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+//        recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+        Task {
+          await recordsProvider.asyncFetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+        }
       }
     }
     .pickerStyle(SegmentedPickerStyle())

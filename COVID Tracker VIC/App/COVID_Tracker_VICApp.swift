@@ -14,8 +14,11 @@ struct COVID_Tracker_VICApp: App {
   var body: some Scene {
       WindowGroup {
         RootTabView()
-          .onAppear { recordsProvider.fetchRecords() }
+//          .onAppear { recordsProvider.fetchRecords() }
           .environmentObject(recordsProvider)
+          .task {
+            await recordsProvider.asyncFetchRecords()
+          }
       }
   }
 }

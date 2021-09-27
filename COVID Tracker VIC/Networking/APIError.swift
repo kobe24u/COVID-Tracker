@@ -10,6 +10,8 @@ import Foundation
 enum APIError: Error {
   case network
   case parsing
+  case invalidURL
+  case noResponse
   case unknown
 }
 
@@ -20,6 +22,10 @@ extension APIError: CustomStringConvertible {
       return "Request to API Server failed"
     case .parsing:
       return "Failed parsing response from server"
+    case .invalidURL:
+      return "Invalid URL"
+    case .noResponse:
+      return "No response of this request"
     case .unknown:
       return "An unknown error occurred"
     }

@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import SwiftUI
 
+@MainActor
 class RecordsProvider: ObservableObject {
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
   @Published var postcodeRecords: [Record] = []
@@ -38,20 +39,34 @@ class RecordsProvider: ObservableObject {
       case .failure(let error): self?.errorMessage = error.description
       }
     } receiveValue: { [weak self] in
-      let records = $0.result.records
-      if type == .lga {
-        self?.lgaRecordsSectionDictionary = self?.getSectionedRecordsDictionary(records: records) ?? [:]
-        self?.calculateNumbers(of: records)
-      } else {
-        self?.nextPostcodeRequestURL = URL(string: baseURLString + $0.result._links.next)
-        self?.postcodeRecords.append(contentsOf: records)
-        self?.postcodeRecords.sort { $0.postCodeString < $1.postCodeString }
-        guard let currentPostcodeRecordsCount = self?.postcodeRecords.count,
-              currentPostcodeRecordsCount >= $0.result.total else { return }
-        self?.postcodeListFull = true
-      }
+      self?.handleRecords(of: type, response: $0)
     }
     .store(in: &cancellables)
+  }
+  
+  func asyncFetchRecords(of type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint) async {
+    isLoading = true
+    do {
+      let response: Response = try await api.asyncFetch(url)
+      self.isLoading = false
+      handleRecords(of: type, response: response)
+    } catch {
+      self.errorMessage = error.localizedDescription
+    }
+  }
+  
+  private func handleRecords(of type: RecordType, response: Response) {
+    if type == .lga {
+      self.lgaRecordsSectionDictionary = self.getSectionedRecordsDictionary(records: response.result.records)
+      self.calculateNumbers(of: response.result.records)
+    } else {
+      self.nextPostcodeRequestURL = URL(string: baseURLString + response.result._links.next)
+      self.postcodeRecords.append(contentsOf: response.result.records)
+      self.postcodeRecords.sort { $0.postCodeString < $1.postCodeString }
+      let currentPostcodeRecordsCount = self.postcodeRecords.count
+      guard currentPostcodeRecordsCount >= response.result.total else { return }
+      self.postcodeListFull = true
+    }
   }
   
   private func getSectionedRecordsDictionary(records: [Record]) -> Dictionary<String, [Record]> {

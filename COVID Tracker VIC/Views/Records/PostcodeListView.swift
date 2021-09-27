@@ -22,11 +22,18 @@ struct PostcodeListView: View {
         ForEach(filteredPostcodeList.indices, id: \.self) { index in
           let record = filteredPostcodeList[index]
           ListRow(record: record, titleString: record.postCodeString)
-            .onAppear {
-              if index == filteredPostcodeList.count - 5 &&
-                    filteredPostcodeList.count == recordsProvider.postcodeRecords.count && recordsProvider.postcodeListFull == false {
-                recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
-              }
+//          .onAppear {
+//              if index == filteredPostcodeList.count - 5 &&
+//                    filteredPostcodeList.count == recordsProvider.postcodeRecords.count && recordsProvider.postcodeListFull == false {
+//                recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+//              }
+//          }
+          .task {
+            if index == filteredPostcodeList.count - 5 &&
+                filteredPostcodeList.count == recordsProvider.postcodeRecords.count &&
+                recordsProvider.postcodeListFull == false {
+              await recordsProvider.asyncFetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+            }
           }
           .padding([.leading, .trailing], 16)
           Divider()
