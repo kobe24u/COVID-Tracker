@@ -16,7 +16,6 @@ struct PostcodeListView: View {
     }
   }
   var body: some View {
-    //TODO Add the Refreshable modifier when Swift 5.5 is out
     ScrollView {
       LazyVStack {
         ForEach(filteredPostcodeList.indices, id: \.self) { index in

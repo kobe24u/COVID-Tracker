@@ -11,7 +11,6 @@ struct LGAListView: View {
   @Binding var searchItem: String
   @EnvironmentObject var recordsProvider: RecordsProvider
   var body: some View {
-    //TODO Add the Refreshable modifier when Swift 5.5 is out
     List {
       ForEach(recordsProvider.lgaRecordsSectionDictionary.keys.sorted(), id:\.self) { key in
         if let filteredRecords = filterRecords(by: key), !filteredRecords.isEmpty {
@@ -20,7 +19,13 @@ struct LGAListView: View {
               }
           }
       }
-    }.listStyle(GroupedListStyle())
+    }
+    .refreshable {
+      Task {
+        await recordsProvider.asyncFetchRecords()
+      }
+    }
+    .listStyle(GroupedListStyle())
   }
   
   private func filterRecords(by key: String) -> [Record]? {

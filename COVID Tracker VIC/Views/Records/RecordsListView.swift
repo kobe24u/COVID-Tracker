@@ -14,8 +14,6 @@ struct RecordsListView: View {
   var body: some View {
     NavigationView {
       VStack(spacing: 16) {
-        //TODO This can be replaced with searchable modifier when Swift 5.5 is out
-        SearchBar(searchTerm: $searchItem)
         SegmentedPicker()
         if recordsProvider.recordType == .lga {
           LGAListView(searchItem: $searchItem)
@@ -23,9 +21,9 @@ struct RecordsListView: View {
           PostcodeListView(searchItem: $searchItem)
         }
       }
+      .searchable(text: $searchItem)
       .navigationBarTitle("🦠 Case Details ")
     }
-    .navigationViewStyle(StackNavigationViewStyle())
     .environmentObject(recordsProvider)
   }
 }
