@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RootTabView: View {
   @EnvironmentObject var recordsProvider: RecordsProvider
+  @StateObject var locationManager: LocationManager = .init()
     var body: some View {
       TabView {
         OverviewTabView()
@@ -20,6 +21,12 @@ struct RootTabView: View {
           .tabItem {
             Image(systemName: "list.bullet")
             Text("List")
+          }
+        TestingSitesMapView()
+          .environmentObject(locationManager)
+          .tabItem {
+            Image(systemName: "testtube.2")
+            Text("Testing Sites")
           }
       }
     }

@@ -24,6 +24,9 @@ struct RecordsListView: View {
       .searchable(text: $searchItem)
       .navigationBarTitle("🦠 Case Details ")
     }
+    .if(UIDevice.current.userInterfaceIdiom == .pad, transform: { view in
+      view.navigationViewStyle(StackNavigationViewStyle())
+    })
     .environmentObject(recordsProvider)
   }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3D3BB82711A509006C22A2 /* TestingSitesMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */; };
+		3B3D3BBC2711A65E006C22A2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */; };
+		3B3D3BBE2711AF0E006C22A2 /* View+IfCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BBD2711AF0E006C22A2 /* View+IfCheck.swift */; };
 		3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */; };
 		3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A726E8C49C00E993D7 /* ListRow.swift */; };
 		3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A926E8C50400E993D7 /* LGAListView.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSitesMapView.swift; sourceTree = "<group>"; };
+		3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3B3D3BBD2711AF0E006C22A2 /* View+IfCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IfCheck.swift"; sourceTree = "<group>"; };
 		3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		3B5C58A726E8C49C00E993D7 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		3B5C58A926E8C50400E993D7 /* LGAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGAListView.swift; sourceTree = "<group>"; };
@@ -79,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3D3BB92711A5EA006C22A2 /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
+				3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
+		3B3D3BBA2711A63F006C22A2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		3B7FAC9F26E4BA4100CB2A3C = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3B7FACC126E4BB3F00CB2A3C /* App */,
+				3B3D3BBA2711A63F006C22A2 /* Helpers */,
 				3B7FACC726E4C3D300CB2A3C /* Networking */,
 				3B7FACBA26E4BA4A00CB2A3C /* Model */,
 				3B7FACC226E4BB5200CB2A3C /* Views */,
@@ -138,10 +161,11 @@
 		3B7FACC226E4BB5200CB2A3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3B95B7A026E720D000B2B4AC /* RootTabView.swift */,
 				3B9D87A826E60D6F00A1EABF /* Common */,
 				3B95B7A226E7211500B2B4AC /* Overview */,
 				3B9D87A926E60D7B00A1EABF /* Records */,
-				3B95B7A026E720D000B2B4AC /* RootTabView.swift */,
+				3B3D3BB92711A5EA006C22A2 /* MapViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +188,7 @@
 				3B7FACC326E4BCA800CB2A3C /* Date+Manipulation.swift */,
 				3B7FACD226E4D7E700CB2A3C /* Error+Converter.swift */,
 				3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */,
+				3B3D3BBD2711AF0E006C22A2 /* View+IfCheck.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +316,7 @@
 				3B7FACD126E4CBCC00CB2A3C /* RecordType.swift in Sources */,
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
+				3B3D3BBE2711AF0E006C22A2 /* View+IfCheck.swift in Sources */,
 				3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */,
 				3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
@@ -300,6 +326,7 @@
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
 				3B95B7A626E7333400B2B4AC /* OverviewContentBlockView.swift in Sources */,
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
+				3B3D3BB82711A509006C22A2 /* TestingSitesMapView.swift in Sources */,
 				3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */,
 				3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
@@ -312,6 +339,7 @@
 				3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */,
 				3B95B7AF26E7641700B2B4AC /* NumberBlock.swift in Sources */,
 				3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */,
+				3B3D3BBC2711A65E006C22A2 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
