@@ -17,8 +17,8 @@ enum MapDetails {
     longitudeDelta: 10
   )
   static let liveSpan = MKCoordinateSpan(
-    latitudeDelta: 0.02,
-    longitudeDelta: 0.02
+    latitudeDelta: 0.1,
+    longitudeDelta: 0.1
   )
 }
 
