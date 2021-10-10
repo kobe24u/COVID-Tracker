@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct MapTypePicker: View {
-  @EnvironmentObject var mapViewProvider: MapViewProvider
+  @EnvironmentObject var mapViewModel: MapViewModel
   var body: some View {
-    Picker("Current selected map type", selection: $mapViewProvider.mapType) {
+    Picker("Current selected map type", selection: $mapViewModel.mapType) {
       ForEach(MapType.allCases, id: \.self) {
         Text($0.rawValue)
       }
-    }.onChange(of: mapViewProvider.mapType) { value in
+    }.onChange(of: mapViewModel.mapType) { value in
       Task {
-        await mapViewProvider.asyncFetchMapData(of: value)
+        await mapViewModel.asyncFetchMapData(of: value)
       }
     }
     .pickerStyle(SegmentedPickerStyle())

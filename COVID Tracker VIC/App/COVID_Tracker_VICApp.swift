@@ -9,15 +9,15 @@ import SwiftUI
 
 @main
 struct COVID_Tracker_VICApp: App {
-  @StateObject var recordsProvider = RecordsProvider(api: APIService())
+  @StateObject var recordsViewModel = RecordsViewModel(api: APIService())
   
   var body: some Scene {
       WindowGroup {
         RootTabView()
-//          .onAppear { recordsProvider.fetchRecords() }
-          .environmentObject(recordsProvider)
+//          .onAppear { recordsViewModel.fetchRecords() }
+          .environmentObject(recordsViewModel)
           .task {
-            await recordsProvider.asyncFetchRecords()
+            await recordsViewModel.asyncFetchRecords()
           }
       }
   }

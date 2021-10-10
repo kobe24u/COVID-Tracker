@@ -1,5 +1,5 @@
 //
-//  recordsProvider.swift
+//  RecordsViewModel.swift
 //  COVID Tracker VIC
 //
 //  Created by Vinnie Liu on 5/9/21.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class RecordsProvider: ObservableObject {
+class RecordsViewModel: ObservableObject {
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
   @Published var postcodeRecords: [Record] = []
   @Published var isLoading: Bool = false

@@ -60,10 +60,3 @@ struct OverviewContentBlockView: View {
   }
 }
 
-struct OverviewContentBlockView_Previews: PreviewProvider {
-    static var previews: some View {
-      OverviewContentBlockView(newCaseNum: 12, totalCaseNum: 12, isLoading: .constant(false))
-.previewInterfaceOrientation(.portrait)
-    }
-}
-

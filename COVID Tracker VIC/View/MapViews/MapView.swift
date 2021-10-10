@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MapView: View {
   @StateObject var locationManager: LocationManager = .init()
-  @StateObject var mapViewProvider: MapViewProvider = .init(api: APIService())
+  @StateObject var mapViewModel: MapViewModel = .init(api: APIService())
   @State var searchText = ""
   // Gesture properties
   @State var offSet: CGFloat = 0
@@ -20,11 +20,11 @@ struct MapView: View {
   var body: some View {
     ZStack(alignment: .top) {
       Group {
-        if mapViewProvider.mapType == .testSites {
+        if mapViewModel.mapType == .testSites {
           Map(
             coordinateRegion: $locationManager.region,
             showsUserLocation: true,
-            annotationItems: mapViewProvider.testSites
+            annotationItems: mapViewModel.testSites
           ) { site in
             MapAnnotation(coordinate: site.clLocation) {
               MapAnnotationView(mapType: .testSites)
@@ -39,7 +39,7 @@ struct MapView: View {
           Map(
             coordinateRegion: $locationManager.region,
             showsUserLocation: true,
-            annotationItems: mapViewProvider.vaxCentres
+            annotationItems: mapViewModel.vaxCentres
           ) { centre in
             MapAnnotation(coordinate: centre.clLocation) {
               MapAnnotationView(mapType: .vaxCentres)
@@ -57,7 +57,7 @@ struct MapView: View {
       .onAppear {
         locationManager.checkIfLocationServicesIsEnabled()
         Task {
-          await mapViewProvider.asyncFetchMapData()
+          await mapViewModel.asyncFetchMapData()
         }
       }
       
@@ -78,13 +78,13 @@ struct MapView: View {
                 .padding(.top)
               
               MapTypePicker()
-                .onChange(of: mapViewProvider.mapType, perform: { newValue in
+                .onChange(of: mapViewModel.mapType, perform: { newValue in
                   locationManager.checkIfLocationServicesIsEnabled()
                   withAnimation {
                     offSet = 0
                   }
                 })
-                .environmentObject(mapViewProvider)
+                .environmentObject(mapViewModel)
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
               

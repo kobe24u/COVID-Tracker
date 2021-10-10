@@ -9,13 +9,13 @@ import SwiftUI
 
 struct RecordsListView: View {
   @State var searchItem = ""
-  @EnvironmentObject var recordsProvider: RecordsProvider
+  @EnvironmentObject var recordsViewModel: RecordsViewModel
   
   var body: some View {
     NavigationView {
       VStack(spacing: 16) {
         RecordsPicker()
-        if recordsProvider.recordType == .lga {
+        if recordsViewModel.recordType == .lga {
           LGAListView(searchItem: $searchItem)
         } else {
           PostcodeListView(searchItem: $searchItem)
@@ -24,7 +24,7 @@ struct RecordsListView: View {
       .searchable(text: $searchItem)
       .navigationBarTitle("🦠 Case Details ")
     }
-    .environmentObject(recordsProvider)
+    .environmentObject(recordsViewModel)
   }
 }
 

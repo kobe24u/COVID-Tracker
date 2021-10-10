@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RecordsContentView: View {
-  @EnvironmentObject var recordsProvider: RecordsProvider
+  @EnvironmentObject var recordsViewModel: RecordsViewModel
   
   var body: some View {
     Group {
-      if recordsProvider.errorMessage != nil {
+      if recordsViewModel.errorMessage != nil {
         ErrorView()
       } else {
         RecordsListView()

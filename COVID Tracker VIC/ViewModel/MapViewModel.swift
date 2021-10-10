@@ -1,5 +1,5 @@
 //
-//  TestSitesProvider.swift
+//  MapViewModel.swift
 //  COVID Tracker VIC
 //
 //  Created by Vinnie Liu on 10/10/21.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class MapViewProvider: ObservableObject {
+class MapViewModel: ObservableObject {
   @Published var mapType: MapType = .testSites
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil

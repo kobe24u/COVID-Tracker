@@ -31,9 +31,3 @@ struct NavigationViewHeaderBlock: View {
     .padding(.top, 32)
   }
 }
-
-struct NavigationViewHeaderBlock_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationViewHeaderBlock()
-    }
-}

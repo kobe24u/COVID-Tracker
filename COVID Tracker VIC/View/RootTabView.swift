@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RootTabView: View {
-  @EnvironmentObject var recordsProvider: RecordsProvider
+  @EnvironmentObject var recordsViewModel: RecordsViewModel
   var body: some View {
     TabView {
       OverviewTabView()

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PostcodeListView: View {
   @Binding var searchItem: String
-  @EnvironmentObject var recordsProvider: RecordsProvider
+  @EnvironmentObject var recordsViewModel: RecordsViewModel
   var filteredPostcodeList: [Record] {
-    recordsProvider.postcodeRecords.filter {
+    recordsViewModel.postcodeRecords.filter {
             searchItem.isEmpty ? true : $0.postCodeString.starts(with: searchItem)
     }
   }
@@ -23,15 +23,15 @@ struct PostcodeListView: View {
           ListRow(record: record, titleString: record.postCodeString)
 //          .onAppear {
 //              if index == filteredPostcodeList.count - 5 &&
-//                    filteredPostcodeList.count == recordsProvider.postcodeRecords.count && recordsProvider.postcodeListFull == false {
-//                recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+//                    filteredPostcodeList.count == recordsViewModel.postcodeRecords.count && recordsViewModel.postcodeListFull == false {
+//                recordsViewModel.fetchRecords(of: .postcode, url: recordsViewModel.nextPostcodeRequestURL)
 //              }
 //          }
           .task {
             if index == filteredPostcodeList.count - 5 &&
-                filteredPostcodeList.count == recordsProvider.postcodeRecords.count &&
-                recordsProvider.postcodeListFull == false {
-              await recordsProvider.asyncFetchRecords(of: .postcode)
+                filteredPostcodeList.count == recordsViewModel.postcodeRecords.count &&
+                recordsViewModel.postcodeListFull == false {
+              await recordsViewModel.asyncFetchRecords(of: .postcode)
             }
           }
           .padding(.horizontal, 16)
