@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B3D3BB82711A509006C22A2 /* TestingSitesMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */; };
+		3B3D3BB82711A509006C22A2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BB72711A509006C22A2 /* MapView.swift */; };
 		3B3D3BBC2711A65E006C22A2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */; };
 		3B3D3BBE2711AF0E006C22A2 /* View+IfCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BBD2711AF0E006C22A2 /* View+IfCheck.swift */; };
-		3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */; };
+		3B3D3BC02711C9E1006C22A2 /* MapViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BBF2711C9E1006C22A2 /* MapViewProvider.swift */; };
+		3B3D3BC22711CA6E006C22A2 /* MapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC12711CA6E006C22A2 /* MapType.swift */; };
+		3B3D3BC42711CD97006C22A2 /* TestSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC32711CD97006C22A2 /* TestSite.swift */; };
+		3B3D3BC62711D21E006C22A2 /* MapTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC52711D21E006C22A2 /* MapTypePicker.swift */; };
+		3B5C58A626E8B13900E993D7 /* RecordsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* RecordsPicker.swift */; };
 		3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A726E8C49C00E993D7 /* ListRow.swift */; };
 		3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A926E8C50400E993D7 /* LGAListView.swift */; };
 		3B5C58AC26E8C54E00E993D7 /* PostcodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */; };
@@ -40,10 +44,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSitesMapView.swift; sourceTree = "<group>"; };
+		3B3D3BB72711A509006C22A2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3B3D3BBD2711AF0E006C22A2 /* View+IfCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IfCheck.swift"; sourceTree = "<group>"; };
-		3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
+		3B3D3BBF2711C9E1006C22A2 /* MapViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProvider.swift; sourceTree = "<group>"; };
+		3B3D3BC12711CA6E006C22A2 /* MapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapType.swift; sourceTree = "<group>"; };
+		3B3D3BC32711CD97006C22A2 /* TestSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSite.swift; sourceTree = "<group>"; };
+		3B3D3BC52711D21E006C22A2 /* MapTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTypePicker.swift; sourceTree = "<group>"; };
+		3B5C58A526E8B13900E993D7 /* RecordsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsPicker.swift; sourceTree = "<group>"; };
 		3B5C58A726E8C49C00E993D7 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		3B5C58A926E8C50400E993D7 /* LGAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGAListView.swift; sourceTree = "<group>"; };
 		3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostcodeListView.swift; sourceTree = "<group>"; };
@@ -88,7 +96,8 @@
 		3B3D3BB92711A5EA006C22A2 /* MapViews */ = {
 			isa = PBXGroup;
 			children = (
-				3B3D3BB72711A509006C22A2 /* TestingSitesMapView.swift */,
+				3B3D3BB72711A509006C22A2 /* MapView.swift */,
+				3B3D3BC52711D21E006C22A2 /* MapTypePicker.swift */,
 			);
 			path = MapViews;
 			sourceTree = "<group>";
@@ -146,6 +155,7 @@
 			children = (
 				3B7FACBB26E4BA5600CB2A3C /* Record.swift */,
 				3B7FACDA26E4F38C00CB2A3C /* Risk.swift */,
+				3B3D3BC32711CD97006C22A2 /* TestSite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,9 +184,11 @@
 			isa = PBXGroup;
 			children = (
 				3B7FACC926E4C3E400CB2A3C /* RecordsProvider.swift */,
+				3B3D3BBF2711C9E1006C22A2 /* MapViewProvider.swift */,
 				3B7FACCB26E4C65F00CB2A3C /* APIError.swift */,
 				3B7FACCD26E4CAEA00CB2A3C /* APIService.swift */,
 				3B7FACD026E4CBCC00CB2A3C /* RecordType.swift */,
+				3B3D3BC12711CA6E006C22A2 /* MapType.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -226,7 +238,6 @@
 				3B7FACD626E4E91F00CB2A3C /* LoadingView.swift */,
 				3B9D87A626E602DB00A1EABF /* SearchBar.swift */,
 				3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */,
-				3B5C58A526E8B13900E993D7 /* SegmentedPicker.swift */,
 				3B5C58A726E8C49C00E993D7 /* ListRow.swift */,
 			);
 			path = Common;
@@ -235,6 +246,7 @@
 		3B9D87A926E60D7B00A1EABF /* Records */ = {
 			isa = PBXGroup;
 			children = (
+				3B5C58A526E8B13900E993D7 /* RecordsPicker.swift */,
 				3B7FACAD26E4BA4100CB2A3C /* RecordsListView.swift */,
 				3B5C58A926E8C50400E993D7 /* LGAListView.swift */,
 				3B5C58AB26E8C54E00E993D7 /* PostcodeListView.swift */,
@@ -314,19 +326,23 @@
 			files = (
 				3B5C58AC26E8C54E00E993D7 /* PostcodeListView.swift in Sources */,
 				3B7FACD126E4CBCC00CB2A3C /* RecordType.swift in Sources */,
+				3B3D3BC42711CD97006C22A2 /* TestSite.swift in Sources */,
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
 				3B3D3BBE2711AF0E006C22A2 /* View+IfCheck.swift in Sources */,
 				3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */,
-				3B5C58A626E8B13900E993D7 /* SegmentedPicker.swift in Sources */,
+				3B5C58A626E8B13900E993D7 /* RecordsPicker.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
 				3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */,
 				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,
+				3B3D3BC02711C9E1006C22A2 /* MapViewProvider.swift in Sources */,
+				3B3D3BC62711D21E006C22A2 /* MapTypePicker.swift in Sources */,
 				3B7FACCA26E4C3E400CB2A3C /* RecordsProvider.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
 				3B95B7A626E7333400B2B4AC /* OverviewContentBlockView.swift in Sources */,
+				3B3D3BC22711CA6E006C22A2 /* MapType.swift in Sources */,
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
-				3B3D3BB82711A509006C22A2 /* TestingSitesMapView.swift in Sources */,
+				3B3D3BB82711A509006C22A2 /* MapView.swift in Sources */,
 				3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */,
 				3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,

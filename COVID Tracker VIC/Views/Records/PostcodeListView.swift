@@ -31,10 +31,10 @@ struct PostcodeListView: View {
             if index == filteredPostcodeList.count - 5 &&
                 filteredPostcodeList.count == recordsProvider.postcodeRecords.count &&
                 recordsProvider.postcodeListFull == false {
-              await recordsProvider.asyncFetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+              await recordsProvider.asyncFetchRecords(of: .postcode)
             }
           }
-          .padding([.leading, .trailing], 16)
+          .padding(.horizontal, 16)
           Divider()
         }
       }

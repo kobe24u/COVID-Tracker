@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SegmentedPicker: View {
+struct RecordsPicker: View {
   @EnvironmentObject var recordsProvider: RecordsProvider
   var body: some View {
     Picker("Current selected record type", selection: $recordsProvider.recordType) {
@@ -18,11 +18,11 @@ struct SegmentedPicker: View {
       if value == .postcode && recordsProvider.postcodeRecords.isEmpty {
 //        recordsProvider.fetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
         Task {
-          await recordsProvider.asyncFetchRecords(of: .postcode, url: recordsProvider.nextPostcodeRequestURL)
+          await recordsProvider.asyncFetchRecords(of: .postcode)
         }
       }
     }
     .pickerStyle(SegmentedPickerStyle())
-    .padding([.leading, .trailing], 16)
+    .padding(.horizontal, 16)
   }
 }

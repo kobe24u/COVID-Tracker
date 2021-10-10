@@ -44,7 +44,8 @@ class RecordsProvider: ObservableObject {
     .store(in: &cancellables)
   }
   
-  func asyncFetchRecords(of type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint) async {
+  func asyncFetchRecords(of type: RecordType = .lga) async {
+    let url: URL? = type.apiEndpoint
     isLoading = true
     do {
       let response: Response = try await api.asyncFetch(url)

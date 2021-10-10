@@ -14,7 +14,7 @@ struct RecordsListView: View {
   var body: some View {
     NavigationView {
       VStack(spacing: 16) {
-        SegmentedPicker()
+        RecordsPicker()
         if recordsProvider.recordType == .lga {
           LGAListView(searchItem: $searchItem)
         } else {
@@ -24,9 +24,6 @@ struct RecordsListView: View {
       .searchable(text: $searchItem)
       .navigationBarTitle("🦠 Case Details ")
     }
-    .if(UIDevice.current.userInterfaceIdiom == .pad, transform: { view in
-      view.navigationViewStyle(StackNavigationViewStyle())
-    })
     .environmentObject(recordsProvider)
   }
 }

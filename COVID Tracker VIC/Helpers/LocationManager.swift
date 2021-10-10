@@ -6,13 +6,27 @@
 //
 
 import MapKit
-import Foundation
+
+enum MapDetails {
+  static let startingLocation = CLLocationCoordinate2D(
+    latitude: -36.9848,
+    longitude: 143.3906
+  )
+  static let defaultSpan = MKCoordinateSpan(
+    latitudeDelta: 10,
+    longitudeDelta: 10
+  )
+  static let liveSpan = MKCoordinateSpan(
+    latitudeDelta: 0.02,
+    longitudeDelta: 0.02
+  )
+}
+
 
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-  
   @Published var region = MKCoordinateRegion(
-    center: .init(latitude: -37.8136, longitude: 144.9631),
-    span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    center: MapDetails.startingLocation,
+    span: MapDetails.defaultSpan
   )
   
   var locationManager: CLLocationManager?
@@ -21,6 +35,8 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     if CLLocationManager.locationServicesEnabled() {
       locationManager = CLLocationManager()
       locationManager?.delegate = self
+      locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+      locationManager?.startUpdatingLocation()
     } else {
       fatalError("Location service has not been turned on")
     }
@@ -28,9 +44,8 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
   
   private func checkLocationAuthorization() {
     guard let locationManager = locationManager else { return }
-
+    
     switch locationManager.authorizationStatus {
-      
     case .notDetermined:
       locationManager.requestWhenInUseAuthorization()
     case .restricted:
@@ -38,10 +53,10 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     case .denied:
       fatalError("Location service has been denied. Please go to Settings to enable it.")
     case .authorizedAlways, .authorizedWhenInUse:
-      guard let currentLocation = locationManager.location?.coordinate else { return }
+      guard let currentLocation = locationManager.location else { return }
       region = .init(
-        center: currentLocation,
-        span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        center: currentLocation.coordinate,
+        span: MapDetails.liveSpan
       )
     @unknown default:
       break
@@ -50,5 +65,13 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
   
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     checkLocationAuthorization()
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    guard let location = locations.last else { return }
+    region = .init(
+      center: location.coordinate,
+      span: MapDetails.liveSpan
+    )
   }
 }
