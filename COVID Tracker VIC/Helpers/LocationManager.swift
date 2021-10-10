@@ -35,8 +35,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     if CLLocationManager.locationServicesEnabled() {
       locationManager = CLLocationManager()
       locationManager?.delegate = self
-      locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-      locationManager?.startUpdatingLocation()
     } else {
       fatalError("Location service has not been turned on")
     }
@@ -65,13 +63,5 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
   
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     checkLocationAuthorization()
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    guard let location = locations.last else { return }
-    region = .init(
-      center: location.coordinate,
-      span: MapDetails.liveSpan
-    )
   }
 }

@@ -27,11 +27,31 @@ struct MapView: View {
         }
       }
       
-      MapTypePicker()
-      .environmentObject(mapViewProvider)
-      .pickerStyle(SegmentedPickerStyle())
-      .padding(.top, 16)
-      .padding(.horizontal, 64)
+      VStack {
+        MapTypePicker()
+        .environmentObject(mapViewProvider)
+        .pickerStyle(SegmentedPickerStyle())
+        .padding(.top, 16)
+        .padding(.horizontal, 64)
+        
+        Spacer()
+        
+        HStack {
+          Spacer()
+          Button(action: {
+            locationManager.checkIfLocationServicesIsEnabled()
+          }, label: {
+            Image("map-reset-icon")
+              .resizable()
+              .renderingMode(.template)
+              .tint(.secondary)
+              .scaledToFit()
+          })
+            .frame(width: 32, height: 32)
+            .padding(.trailing, 16)
+            .padding(.bottom, 32)
+        }
+      }
     }
   }
 }
