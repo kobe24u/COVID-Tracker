@@ -16,8 +16,28 @@ struct MapView: View {
     ZStack(alignment: .top) {
       Map(
         coordinateRegion: $locationManager.region,
-        showsUserLocation: true
-      )
+        showsUserLocation: true,
+        annotationItems: mapViewProvider.testSites
+      ) { site in
+        MapAnnotation(coordinate: site.clLocation) {
+          Image(systemName: "testtube.2")
+          .foregroundColor(.red)
+          .padding(5)
+          .background(Color.white)
+          .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+          .overlay(
+              Image(systemName: "arrowtriangle.left.fill")
+                  .rotationEffect(Angle(degrees: 270))
+                  .foregroundColor(.white)
+                  .offset(y: 10)
+              ,
+              alignment: .bottom
+          )
+          .onTapGesture {
+            print(site.Site_Name)
+          }
+        }
+      }
       .ignoresSafeArea(.container, edges: .top)
       .accentColor(Color(.systemPink))
       .onAppear {
