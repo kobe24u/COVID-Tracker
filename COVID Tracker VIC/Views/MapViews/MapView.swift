@@ -11,30 +11,44 @@ import SwiftUI
 struct MapView: View {
   @StateObject var locationManager: LocationManager = .init()
   @StateObject var mapViewProvider: MapViewProvider = .init(api: APIService())
+  @State var searchText = ""
+  // Gesture properties
+  @State var offSet: CGFloat = 0
+  @State var lastOffSet: CGFloat = 0
+  @GestureState var gestureOffSet: CGFloat = 0
   
   var body: some View {
     ZStack(alignment: .top) {
-      Map(
-        coordinateRegion: $locationManager.region,
-        showsUserLocation: true,
-        annotationItems: mapViewProvider.testSites
-      ) { site in
-        MapAnnotation(coordinate: site.clLocation) {
-          Image(systemName: "testtube.2")
-          .foregroundColor(.red)
-          .padding(5)
-          .background(Color.white)
-          .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-          .overlay(
-              Image(systemName: "arrowtriangle.left.fill")
-                  .rotationEffect(Angle(degrees: 270))
-                  .foregroundColor(.white)
-                  .offset(y: 10)
-              ,
-              alignment: .bottom
-          )
-          .onTapGesture {
-            print(site.Site_Name)
+      Group {
+        if mapViewProvider.mapType == .testSites {
+          Map(
+            coordinateRegion: $locationManager.region,
+            showsUserLocation: true,
+            annotationItems: mapViewProvider.testSites
+          ) { site in
+            MapAnnotation(coordinate: site.clLocation) {
+              MapAnnotationView(mapType: .testSites)
+              .onTapGesture {
+                withAnimation {
+                 offSet = -250
+                }
+              }
+            }
+          }
+        } else {
+          Map(
+            coordinateRegion: $locationManager.region,
+            showsUserLocation: true,
+            annotationItems: mapViewProvider.vaxCentres
+          ) { centre in
+            MapAnnotation(coordinate: centre.clLocation) {
+              MapAnnotationView(mapType: .vaxCentres)
+              .onTapGesture {
+                withAnimation {
+                 offSet = -250
+                }
+              }
+            }
           }
         }
       }
@@ -47,31 +61,73 @@ struct MapView: View {
         }
       }
       
-      VStack {
-        MapTypePicker()
-        .environmentObject(mapViewProvider)
-        .pickerStyle(SegmentedPickerStyle())
-        .padding(.top, 16)
-        .padding(.horizontal, 64)
+      GeometryReader { proxy -> AnyView in
         
-        Spacer()
+        let height = proxy.frame(in: .global).height
         
-        HStack {
-          Spacer()
-          Button(action: {
-            locationManager.checkIfLocationServicesIsEnabled()
-          }, label: {
-            Image("map-reset-icon")
-              .resizable()
-              .renderingMode(.template)
-              .tint(.secondary)
-              .scaledToFit()
-          })
-            .frame(width: 32, height: 32)
-            .padding(.trailing, 16)
-            .padding(.bottom, 32)
-        }
+        return AnyView(
+          ZStack {
+            BlurView(style: .systemThinMaterialDark)
+              .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
+            
+            VStack(spacing: 16) {
+   
+              Capsule()
+                .fill(.white)
+                .frame(width: 60, height: 4)
+                .padding(.top)
+              
+              MapTypePicker()
+                .onChange(of: mapViewProvider.mapType, perform: { newValue in
+                  locationManager.checkIfLocationServicesIsEnabled()
+                  withAnimation {
+                    offSet = 0
+                  }
+                })
+                .environmentObject(mapViewProvider)
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
+              
+              TextField("Search...", text: $searchText)
+                .padding(.vertical, 12)
+                .padding(.horizontal)
+                .background(BlurView(style: .dark))
+                .cornerRadius(10)
+                .colorScheme(.dark)
+                
+            }
+            .padding(.horizontal)
+            .frame(maxHeight: .infinity, alignment: .top)
+          }
+          .offset(y: height - 100)
+          .offset(y: -offSet > 0 ? -offSet <= (height - 100) ? offSet : -(height - 100) : 0)
+          .gesture(
+            DragGesture()
+              .updating($gestureOffSet, body: { value, out, _ in
+                out = value.translation.height
+                onChange()
+              })
+              .onEnded{ value in
+                let maxHeight = height - 100
+                withAnimation {
+                  if -offSet > 100 && -offSet < maxHeight / 2{
+                    offSet = -(maxHeight / 3)
+                  } else if -offSet > maxHeight / 2 {
+                    offSet = -maxHeight
+                  } else {
+                    offSet = 0
+                  }
+                }
+              }
+          )
+        )
       }
+    }
+  }
+  
+  func onChange() {
+    DispatchQueue.main.async {
+      self.offSet = gestureOffSet + lastOffSet
     }
   }
 }

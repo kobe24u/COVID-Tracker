@@ -14,6 +14,11 @@
 		3B3D3BC22711CA6E006C22A2 /* MapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC12711CA6E006C22A2 /* MapType.swift */; };
 		3B3D3BC42711CD97006C22A2 /* TestSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC32711CD97006C22A2 /* TestSite.swift */; };
 		3B3D3BC62711D21E006C22A2 /* MapTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC52711D21E006C22A2 /* MapTypePicker.swift */; };
+		3B3D3BC82712A264006C22A2 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC72712A264006C22A2 /* DrawerView.swift */; };
+		3B3D3BCA2712A3C6006C22A2 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BC92712A3C6006C22A2 /* BlurView.swift */; };
+		3B3D3BCC2712A46B006C22A2 /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BCB2712A46B006C22A2 /* CustomCorner.swift */; };
+		3B3D3BCE2712B5AF006C22A2 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BCD2712B5AF006C22A2 /* MapAnnotationView.swift */; };
+		3B3D3BD02712C104006C22A2 /* VaxCentre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3D3BCF2712C104006C22A2 /* VaxCentre.swift */; };
 		3B5C58A626E8B13900E993D7 /* RecordsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A526E8B13900E993D7 /* RecordsPicker.swift */; };
 		3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A726E8C49C00E993D7 /* ListRow.swift */; };
 		3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5C58A926E8C50400E993D7 /* LGAListView.swift */; };
@@ -51,6 +56,11 @@
 		3B3D3BC12711CA6E006C22A2 /* MapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapType.swift; sourceTree = "<group>"; };
 		3B3D3BC32711CD97006C22A2 /* TestSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSite.swift; sourceTree = "<group>"; };
 		3B3D3BC52711D21E006C22A2 /* MapTypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTypePicker.swift; sourceTree = "<group>"; };
+		3B3D3BC72712A264006C22A2 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		3B3D3BC92712A3C6006C22A2 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		3B3D3BCB2712A46B006C22A2 /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
+		3B3D3BCD2712B5AF006C22A2 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		3B3D3BCF2712C104006C22A2 /* VaxCentre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaxCentre.swift; sourceTree = "<group>"; };
 		3B5C58A526E8B13900E993D7 /* RecordsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsPicker.swift; sourceTree = "<group>"; };
 		3B5C58A726E8C49C00E993D7 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		3B5C58A926E8C50400E993D7 /* LGAListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGAListView.swift; sourceTree = "<group>"; };
@@ -156,6 +166,7 @@
 				3B7FACBB26E4BA5600CB2A3C /* Record.swift */,
 				3B7FACDA26E4F38C00CB2A3C /* Risk.swift */,
 				3B3D3BC32711CD97006C22A2 /* TestSite.swift */,
+				3B3D3BCF2712C104006C22A2 /* VaxCentre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +250,10 @@
 				3B9D87A626E602DB00A1EABF /* SearchBar.swift */,
 				3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */,
 				3B5C58A726E8C49C00E993D7 /* ListRow.swift */,
+				3B3D3BC72712A264006C22A2 /* DrawerView.swift */,
+				3B3D3BC92712A3C6006C22A2 /* BlurView.swift */,
+				3B3D3BCB2712A46B006C22A2 /* CustomCorner.swift */,
+				3B3D3BCD2712B5AF006C22A2 /* MapAnnotationView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -330,15 +345,19 @@
 				3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */,
 				3B7FACAE26E4BA4100CB2A3C /* RecordsListView.swift in Sources */,
 				3B3D3BBE2711AF0E006C22A2 /* View+IfCheck.swift in Sources */,
+				3B3D3BCE2712B5AF006C22A2 /* MapAnnotationView.swift in Sources */,
+				3B3D3BC82712A264006C22A2 /* DrawerView.swift in Sources */,
 				3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */,
 				3B5C58A626E8B13900E993D7 /* RecordsPicker.swift in Sources */,
 				3B7FACBF26E4BAA300CB2A3C /* String+DateConverter.swift in Sources */,
 				3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */,
 				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,
 				3B3D3BC02711C9E1006C22A2 /* MapViewProvider.swift in Sources */,
+				3B3D3BCA2712A3C6006C22A2 /* BlurView.swift in Sources */,
 				3B3D3BC62711D21E006C22A2 /* MapTypePicker.swift in Sources */,
 				3B7FACCA26E4C3E400CB2A3C /* RecordsProvider.swift in Sources */,
 				3B7FACAC26E4BA4100CB2A3C /* COVID_Tracker_VICApp.swift in Sources */,
+				3B3D3BD02712C104006C22A2 /* VaxCentre.swift in Sources */,
 				3B95B7A626E7333400B2B4AC /* OverviewContentBlockView.swift in Sources */,
 				3B3D3BC22711CA6E006C22A2 /* MapType.swift in Sources */,
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
@@ -352,6 +371,7 @@
 				3B7FACD926E4E9D300CB2A3C /* RecordsContentView.swift in Sources */,
 				3B9D87A726E602DB00A1EABF /* SearchBar.swift in Sources */,
 				3B7FACBC26E4BA5600CB2A3C /* Record.swift in Sources */,
+				3B3D3BCC2712A46B006C22A2 /* CustomCorner.swift in Sources */,
 				3B5C58A826E8C49C00E993D7 /* ListRow.swift in Sources */,
 				3B95B7AF26E7641700B2B4AC /* NumberBlock.swift in Sources */,
 				3B5C58AA26E8C50400E993D7 /* LGAListView.swift in Sources */,

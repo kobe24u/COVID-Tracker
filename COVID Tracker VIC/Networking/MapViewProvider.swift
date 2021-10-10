@@ -15,6 +15,7 @@ class MapViewProvider: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
   @Published var testSites: [Site] = []
+  @Published var vaxCentres: [VaxCentre] = []
   private let api: APIService
   private var cancellables: Set<AnyCancellable> = []
   
@@ -25,9 +26,13 @@ class MapViewProvider: ObservableObject {
   func asyncFetchMapData(of type: MapType = .testSites) async {
     isLoading = true
     do {
-      let response: TestSitesResponse = try await api.asyncFetch(type.apiEndpoint)
+      if type == .testSites {
+        let response: TestSitesResponse = try await api.asyncFetch(type.apiEndpoint)
+        testSites = response.sites
+      } else {
+        vaxCentres = try await api.asyncFetch(type.apiEndpoint)
+      }
       isLoading = false
-      testSites = response.sites
     } catch {
       self.errorMessage = error.localizedDescription
     }
