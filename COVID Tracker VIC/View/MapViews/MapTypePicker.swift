@@ -15,6 +15,7 @@ struct MapTypePicker: View {
         Text($0.rawValue)
       }
     }.onChange(of: mapViewModel.mapType) { value in
+      mapViewModel.sites.removeAll()
       Task {
         await mapViewModel.asyncFetchMapData(of: value)
       }

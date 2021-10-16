@@ -14,8 +14,7 @@ class MapViewModel: ObservableObject {
   @Published var mapType: MapType = .testSites
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
-  @Published var testSites: [Site] = []
-  @Published var vaxCentres: [VaxCentre] = []
+  @Published var sites: [SiteType] = []
   private let api: APIService
   private var cancellables: Set<AnyCancellable> = []
   
@@ -28,9 +27,10 @@ class MapViewModel: ObservableObject {
     do {
       if type == .testSites {
         let response: TestSitesResponse = try await api.asyncFetch(type.apiEndpoint)
-        testSites = response.sites
+        sites = response.sites.map { SiteType(from: $0) }
       } else {
-        vaxCentres = try await api.asyncFetch(type.apiEndpoint)
+        let vaxCentres: [VaxCentre] = try await api.asyncFetch(type.apiEndpoint)
+        sites = vaxCentres.map { SiteType(from: $0) }
       }
       isLoading = false
     } catch {

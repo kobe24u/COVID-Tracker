@@ -19,35 +19,16 @@ struct MapView: View {
   
   var body: some View {
     ZStack(alignment: .top) {
-      Group {
-        if mapViewModel.mapType == .testSites {
-          Map(
-            coordinateRegion: $locationManager.region,
-            showsUserLocation: true,
-            annotationItems: mapViewModel.testSites
-          ) { site in
-            MapAnnotation(coordinate: site.clLocation) {
-              MapAnnotationView(mapType: .testSites)
-              .onTapGesture {
-                withAnimation {
-                 offSet = -250
-                }
-              }
-            }
-          }
-        } else {
-          Map(
-            coordinateRegion: $locationManager.region,
-            showsUserLocation: true,
-            annotationItems: mapViewModel.vaxCentres
-          ) { centre in
-            MapAnnotation(coordinate: centre.clLocation) {
-              MapAnnotationView(mapType: .vaxCentres)
-              .onTapGesture {
-                withAnimation {
-                 offSet = -250
-                }
-              }
+      Map(
+        coordinateRegion: $locationManager.region,
+        showsUserLocation: true,
+        annotationItems: mapViewModel.sites
+      ) { site in
+        MapAnnotation(coordinate: site.clLocation) {
+          MapAnnotationView(mapType: mapViewModel.mapType)
+          .onTapGesture {
+            withAnimation {
+             offSet = -250
             }
           }
         }

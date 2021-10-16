@@ -40,6 +40,7 @@
 		3B7FACD926E4E9D300CB2A3C /* RecordsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACD826E4E9D300CB2A3C /* RecordsContentView.swift */; };
 		3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDA26E4F38C00CB2A3C /* Risk.swift */; };
 		3B7FACDD26E4F66800CB2A3C /* Color+Hexinit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */; };
+		3B94ED92271A7F7700EA8005 /* SiteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94ED91271A7F7700EA8005 /* SiteType.swift */; };
 		3B95B79D26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */; };
 		3B95B7A126E720D000B2B4AC /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7A026E720D000B2B4AC /* RootTabView.swift */; };
 		3B95B7A426E7213200B2B4AC /* OverviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B95B7A326E7213200B2B4AC /* OverviewTabView.swift */; };
@@ -84,6 +85,7 @@
 		3B7FACD826E4E9D300CB2A3C /* RecordsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsContentView.swift; sourceTree = "<group>"; };
 		3B7FACDA26E4F38C00CB2A3C /* Risk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Risk.swift; sourceTree = "<group>"; };
 		3B7FACDC26E4F66800CB2A3C /* Color+Hexinit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexinit.swift"; sourceTree = "<group>"; };
+		3B94ED91271A7F7700EA8005 /* SiteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteType.swift; sourceTree = "<group>"; };
 		3B95B79C26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewHeaderBlock.swift; sourceTree = "<group>"; };
 		3B95B7A026E720D000B2B4AC /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		3B95B7A326E7213200B2B4AC /* OverviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTabView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				3B7FACDA26E4F38C00CB2A3C /* Risk.swift */,
 				3B3D3BC32711CD97006C22A2 /* TestSite.swift */,
 				3B3D3BCF2712C104006C22A2 /* VaxCentre.swift */,
+				3B94ED91271A7F7700EA8005 /* SiteType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				3B7FACD326E4D7E700CB2A3C /* Error+Converter.swift in Sources */,
 				3B3D3BB82711A509006C22A2 /* MapView.swift in Sources */,
 				3B7FACD526E4E79D00CB2A3C /* ErrorView.swift in Sources */,
+				3B94ED92271A7F7700EA8005 /* SiteType.swift in Sources */,
 				3B7FACCC26E4C65F00CB2A3C /* APIError.swift in Sources */,
 				3B7FACC426E4BCA800CB2A3C /* Date+Manipulation.swift in Sources */,
 				3B95B79D26E71E7B00B2B4AC /* NavigationViewHeaderBlock.swift in Sources */,

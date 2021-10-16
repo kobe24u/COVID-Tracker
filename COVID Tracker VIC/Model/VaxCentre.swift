@@ -10,12 +10,12 @@ import Foundation
 
 struct VaxCentre: Codable, Identifiable {
   let id: Int
-  let lat: Double
-  let lng: Double
   let suburb: String
   let addressFull: String
   let shortNameClean: String
   let opening_hours: String
+  private let lat: Double
+  private let lng: Double
     
   var clLocation: CLLocationCoordinate2D {
     .init(

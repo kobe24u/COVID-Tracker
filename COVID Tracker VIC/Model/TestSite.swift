@@ -20,10 +20,8 @@ struct Site: Codable, Identifiable {
   let Service_Availability: String
   let Address: String
   let Suburb: String
-  let State: String
-  let Postcode: String
-  let Latitude: String
-  let Longitude: String
+  private let Latitude: String
+  private let Longitude: String
     
   var id: String { Site_ID }
   var clLocation: CLLocationCoordinate2D {
