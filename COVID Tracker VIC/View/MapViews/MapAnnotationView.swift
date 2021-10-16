@@ -11,7 +11,16 @@ struct MapAnnotationView: View {
   let mapType: MapType
   
   var body: some View {
-    Image(systemName: mapType == .testSites ? "testtube.2" : "cross.case")
+    Group {
+      if mapType == .testSites {
+        Image(systemName: "testtube.2")
+      } else {
+        Image("vaxIcon")
+          .renderingMode(.template)
+          .resizable()
+          .frame(width: 20, height: 20)
+      }
+    }
     .foregroundColor(.red)
     .padding(5)
     .background(Color.white)

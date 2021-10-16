@@ -13,7 +13,6 @@ import MapKit
 @MainActor
 class MapViewModel: ObservableObject {
   @Published var mapType: MapType = .testSites
-  @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
   @Published var sites: [SiteType] = []
   @Published var site: SiteType? = nil
@@ -27,7 +26,6 @@ class MapViewModel: ObservableObject {
   }
   
   func asyncFetchMapData(of type: MapType = .testSites) async {
-    isLoading = true
     do {
       if type == .testSites {
         let response: TestSitesResponse = try await api.asyncFetch(type.apiEndpoint)
@@ -36,7 +34,6 @@ class MapViewModel: ObservableObject {
         let vaxCentres: [VaxCentre] = try await api.asyncFetch(type.apiEndpoint)
         sites = vaxCentres.map { SiteType(from: $0) }
       }
-      isLoading = false
     } catch {
       self.errorMessage = error.localizedDescription
     }
