@@ -17,6 +17,13 @@ struct SiteType: Identifiable {
   let availability: String
   let website: String?
   let phone: String?
+  var fullAddress: String {
+    if address.contains(suburb) {
+      return address
+    } else {
+      return address + ", " + suburb
+    }
+  }
   
   init(from testSite: Site) {
     self.id = testSite.id

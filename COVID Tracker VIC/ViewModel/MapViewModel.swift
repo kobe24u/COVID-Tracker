@@ -15,6 +15,7 @@ class MapViewModel: ObservableObject {
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
   @Published var sites: [SiteType] = []
+  @Published var site: SiteType? = nil
   private let api: APIService
   private var cancellables: Set<AnyCancellable> = []
   

@@ -9,6 +9,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
+  @Environment(\.openURL) var openURL
   @StateObject var locationManager: LocationManager = .init()
   @StateObject var mapViewModel: MapViewModel = .init(api: APIService())
   @State var searchText = ""
@@ -28,7 +29,8 @@ struct MapView: View {
           MapAnnotationView(mapType: mapViewModel.mapType)
           .onTapGesture {
             withAnimation {
-             offSet = -250
+              mapViewModel.site = site
+              offSet = -250
             }
           }
         }
@@ -51,12 +53,16 @@ struct MapView: View {
             BlurView(style: .systemThinMaterialDark)
               .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
             
-            VStack(spacing: 16) {
+            VStack(alignment: .leading, spacing: 16) {
    
-              Capsule()
-                .fill(.white)
-                .frame(width: 60, height: 4)
-                .padding(.top)
+              HStack {
+                Spacer()
+                Capsule()
+                  .fill(.white)
+                  .frame(width: 60, height: 4)
+                  .padding(.top)
+                Spacer()
+              }
               
               MapTypePicker()
                 .onChange(of: mapViewModel.mapType, perform: { newValue in
@@ -75,9 +81,37 @@ struct MapView: View {
                 .background(BlurView(style: .dark))
                 .cornerRadius(10)
                 .colorScheme(.dark)
+              
+              if let site = mapViewModel.site{
+                Text(site.name)
+                  .font(.headline)
                 
+                Text(site.fullAddress)
+                  .font(.subheadline)
+              
+                if let phoneNumberString = site.phone {                 
+                  Button(action: {
+                      let telephone = "tel://"
+                      let formattedString = telephone + phoneNumberString
+                      guard let url = URL(string: formattedString) else { return }
+                      UIApplication.shared.open(url)
+                     }) {
+                     Text(phoneNumberString)
+                  }
+                }
+                
+                if let websiteString = site.website,
+                   let webSiteURL = URL(string: websiteString) {
+                  Button("Book Online") {
+                      openURL(webSiteURL)
+                  }
+                }
+                
+                Text(site.availability)
+                  .font(.footnote)
+              }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 8)
             .frame(maxHeight: .infinity, alignment: .top)
           }
           .offset(y: height - 100)
@@ -96,6 +130,7 @@ struct MapView: View {
                   } else if -offSet > maxHeight / 2 {
                     offSet = -maxHeight
                   } else {
+                    mapViewModel.site = nil
                     offSet = 0
                   }
                 }
