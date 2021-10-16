@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct BlurView: UIViewRepresentable {
-  var style: UIBlurEffect.Style
+  @Environment(\.colorScheme) var colorScheme
+  var style: UIBlurEffect.Style {
+    colorScheme == .dark ? .dark : .light
+  }
   
   func makeUIView(context: Context) -> UIVisualEffectView {
     UIVisualEffectView(

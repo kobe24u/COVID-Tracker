@@ -9,10 +9,10 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-  @Environment(\.openURL) var openURL
   @StateObject var locationManager: LocationManager = .init()
-  @StateObject var mapViewModel: MapViewModel = .init(api: APIService())
-  @State var searchText = ""
+  @StateObject var mapViewModel: MapViewModel = .init(
+    api: APIService()
+  )
   // Gesture properties
   @State var offSet: CGFloat = 0
   @State var lastOffSet: CGFloat = 0
@@ -44,106 +44,144 @@ struct MapView: View {
         }
       }
       
-      GeometryReader { proxy -> AnyView in
-        
-        let height = proxy.frame(in: .global).height
-        
-        return AnyView(
-          ZStack {
-            BlurView(style: .systemThinMaterialDark)
-              .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
-            
-            VStack(alignment: .leading, spacing: 16) {
-   
-              HStack {
-                Spacer()
-                Capsule()
-                  .fill(.white)
-                  .frame(width: 60, height: 4)
-                  .padding(.top)
-                Spacer()
-              }
+      VStack {
+        ZStack {
+          VStack(spacing: 0) {
+            TextField("🔍 Search...", text: $mapViewModel.searchText)
+              .padding(.vertical, 12)
+              .padding(.horizontal, 16)
+              .background(BlurView())
+              .cornerRadius(18)
               
-              MapTypePicker()
-                .onChange(of: mapViewModel.mapType, perform: { newValue in
-                  locationManager.checkIfLocationServicesIsEnabled()
-                  withAnimation {
-                    offSet = 0
-                  }
-                })
-                .environmentObject(mapViewModel)
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal)
-              
-              TextField("Search...", text: $searchText)
-                .padding(.vertical, 12)
-                .padding(.horizontal)
-                .background(BlurView(style: .dark))
-                .cornerRadius(10)
-                .colorScheme(.dark)
-              
-              if let site = mapViewModel.site{
-                Text(site.name)
-                  .font(.headline)
-                
-                Text(site.fullAddress)
-                  .font(.subheadline)
-              
-                if let phoneNumberString = site.phone {                 
-                  Button(action: {
-                      let telephone = "tel://"
-                      let formattedString = telephone + phoneNumberString
-                      guard let url = URL(string: formattedString) else { return }
-                      UIApplication.shared.open(url)
-                     }) {
-                     Text(phoneNumberString)
+            if !mapViewModel.places.isEmpty && mapViewModel.searchText != "" {
+              ScrollView {
+                VStack(spacing: 8) {
+                  ForEach(mapViewModel.places) {
+                    if let name = $0.place.name,
+                       let suburb = $0.place.locality,
+                       let postcode = $0.place.postalCode,
+                       let coordinate = $0.place.location?.coordinate {
+                      Text(name + ", " + suburb + ", " + postcode)
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                        .onTapGesture {
+                          self.mapViewModel.searchText = ""
+                          self.locationManager.setRegion(with: coordinate)
+                        }
+                      Divider()
+                    }
                   }
                 }
-                
-                if let websiteString = site.website,
-                   let webSiteURL = URL(string: websiteString) {
-                  Button("Book Online") {
-                      openURL(webSiteURL)
-                  }
-                }
-                
-                Text(site.availability)
-                  .font(.footnote)
+                .padding(.top)
               }
+              .background(Color.white)
             }
-            .padding(.horizontal, 8)
-            .frame(maxHeight: .infinity, alignment: .top)
           }
-          .offset(y: height - 100)
-          .offset(y: -offSet > 0 ? -offSet <= (height - 100) ? offSet : -(height - 100) : 0)
-          .gesture(
-            DragGesture()
-              .updating($gestureOffSet, body: { value, out, _ in
-                out = value.translation.height
-                onChange()
-              })
-              .onEnded{ value in
-                let maxHeight = height - 100
-                withAnimation {
-                  if -offSet > 100 && -offSet < maxHeight / 2{
-                    offSet = -(maxHeight / 3)
-                  } else if -offSet > maxHeight / 2 {
-                    offSet = -maxHeight
-                  } else {
-                    mapViewModel.site = nil
-                    offSet = 0
-                  }
+          .padding(.horizontal, 16)
+          
+          HStack {
+            Spacer()
+            Image(systemName: "location.circle.fill")
+              .resizable()
+              .frame(width: 32, height: 32)
+              .padding(.trailing, 24)
+              .onTapGesture {
+                resetMap()
+              }
+          }
+        }
+        
+        Spacer()
+        
+        GeometryReader { proxy -> AnyView in
+          
+          let height = proxy.frame(in: .global).height
+          
+          return AnyView(
+            ZStack {
+              BlurView()
+                .clipShape(CustomCorner(corners: [.topLeft, .topRight], radius: 30))
+              
+              VStack(alignment: .leading, spacing: 16) {
+                CentredCapsule()
+                
+                MapTypePicker()
+                  .onChange(of: mapViewModel.mapType, perform: { newValue in
+                    resetMap()
+                  })
+                  .environmentObject(mapViewModel)
+                  .pickerStyle(SegmentedPickerStyle())
+                  .padding(.horizontal)
+                
+                if let site = mapViewModel.site {
+                  MapDrawerSiteDetailsView(site: site)
                 }
               }
+              .padding(.horizontal, 16)
+              .frame(maxHeight: .infinity, alignment: .top)
+            }
+            .offset(y: height - 100)
+            .offset(y: -offSet > 0 ? -offSet <= (height - 100) ? offSet : -(height - 100) : 0)
+            .gesture(
+              DragGesture()
+                .updating($gestureOffSet, body: { value, out, _ in
+                  out = value.translation.height
+                  onChange()
+                })
+                .onEnded{ value in
+                  let maxHeight = height - 100
+                  withAnimation {
+                    if -offSet > 100 && -offSet < maxHeight / 2{
+                      offSet = -(maxHeight / 3)
+                    } else if -offSet > maxHeight / 2 {
+                      offSet = -maxHeight
+                    } else {
+                      mapViewModel.site = nil
+                      offSet = 0
+                    }
+                  }
+                }
+            )
           )
-        )
+        }
+      }
+    }
+    .onChange(of: mapViewModel.searchText) { newValue in
+      mapViewModel.site = nil
+      withAnimation {
+        offSet = 0
+      }
+      let delay = 0.1
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        if newValue == mapViewModel.searchText {
+          Task {
+           try await mapViewModel.searchQuery()
+          }
+        }
       }
     }
   }
   
-  func onChange() {
+  private func resetMap() {
+    locationManager.checkIfLocationServicesIsEnabled()
+    mapViewModel.site = nil
+    withAnimation {
+      offSet = 0
+    }
+  }
+  
+  private func onChange() {
     DispatchQueue.main.async {
       self.offSet = gestureOffSet + lastOffSet
     }
+  }
+}
+
+struct MapView_Previews: PreviewProvider {
+  static var previews: some View {
+    MapView().preferredColorScheme(.dark)
+    MapView().preferredColorScheme(.light)
   }
 }

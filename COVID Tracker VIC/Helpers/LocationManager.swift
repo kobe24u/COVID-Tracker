@@ -61,6 +61,13 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
   }
   
+  func setRegion(with coordinate: CLLocationCoordinate2D) {
+    self.region = .init(
+      center: coordinate,
+      span: MapDetails.liveSpan
+    )
+  }
+  
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     checkLocationAuthorization()
   }
