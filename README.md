@@ -1,4 +1,5 @@
 # COVID Tracker VIC
+<img src="https://user-images.githubusercontent.com/18501700/137618725-cf6bfa81-2cb1-4855-9c7f-d5d42f489a10.PNG" width="200" height="200">
 
 ## Description
 
