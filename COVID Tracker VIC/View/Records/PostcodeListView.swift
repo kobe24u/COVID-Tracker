@@ -31,7 +31,7 @@ struct PostcodeListView: View {
             if index == filteredPostcodeList.count - 5 &&
                 filteredPostcodeList.count == recordsViewModel.postcodeRecords.count &&
                 recordsViewModel.postcodeListFull == false {
-              await recordsViewModel.asyncFetchRecords(of: .postcode)
+              await recordsViewModel.asyncFetchRecords(of: .postcode, url: recordsViewModel.nextPostcodeRequestURL)
             }
           }
           .padding(.horizontal, 16)

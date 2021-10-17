@@ -18,7 +18,7 @@ struct RecordsPicker: View {
       if value == .postcode && recordsViewModel.postcodeRecords.isEmpty {
 //        recordsViewModel.fetchRecords(of: .postcode, url: recordsViewModel.nextPostcodeRequestURL)
         Task {
-          await recordsViewModel.asyncFetchRecords(of: .postcode)
+          await recordsViewModel.asyncFetchRecords(of: .postcode, url: recordsViewModel.nextPostcodeRequestURL)
         }
       }
     }
