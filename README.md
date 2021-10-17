@@ -13,7 +13,7 @@ Features:
 ## Demo
 | Search cases in List | Search Test sites & Vax Centres in Map |
 | --- | --- |
-|![2021-10-17_19-55-31 (1)](https://user-images.githubusercontent.com/18501700/137619776-7f9120a8-018f-4891-9035-0b1697f4f1a5.gif) | ![ezgif com-gif-maker](https://user-images.githubusercontent.com/18501700/137619579-b939f2d8-db65-4a8c-85e7-8c884ad85a72.gif) |
+| ![2021-10-17_19-55-31 (2)](https://user-images.githubusercontent.com/18501700/137620097-8de63823-5d01-4610-a607-f32532182a80.gif) | ![ezgif com-gif-maker](https://user-images.githubusercontent.com/18501700/137619579-b939f2d8-db65-4a8c-85e7-8c884ad85a72.gif) |
 
 ## Getting Started
 
