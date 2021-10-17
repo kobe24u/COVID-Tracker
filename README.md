@@ -9,6 +9,7 @@ Features:
 - Aysnc/Await
 - Combine
 - MVVM
+- Core Location
 
 ## Demo
 | Search cases in List | Search Test sites & Vax Centres in Map |
