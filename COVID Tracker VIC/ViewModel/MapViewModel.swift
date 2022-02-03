@@ -18,10 +18,10 @@ class MapViewModel: ObservableObject {
   @Published var site: SiteType? = nil
   @Published var searchText = ""
   @Published var places: [Place] = []
-  private let api: APIService
+  private let api: APIServiceType
   private var cancellables: Set<AnyCancellable> = []
   
-  init(api: APIService) {
+  init(api: APIServiceType = APIService()) {
     self.api = api
   }
   

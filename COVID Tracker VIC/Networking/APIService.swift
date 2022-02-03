@@ -8,8 +8,12 @@
 import Combine
 import Foundation
 
-class APIService {
-  
+protocol APIServiceType {
+    func fetch<T: Decodable>(_ url: URL?) -> AnyPublisher<T, APIError>
+    func asyncFetch<T: Decodable>(_ url: URL?) async throws -> T
+}
+
+class APIService: APIServiceType {
   func fetch<T: Decodable>(_ url: URL?) -> AnyPublisher<T, APIError> {
     guard let url = url else { return Empty().eraseToAnyPublisher() }
     return URLSession.shared.dataTaskPublisher(for: url)

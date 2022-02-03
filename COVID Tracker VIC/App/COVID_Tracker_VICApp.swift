@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct COVID_Tracker_VICApp: App {
-  @StateObject var recordsViewModel = RecordsViewModel(api: APIService())
+  @StateObject var recordsViewModel = RecordsViewModel()
   
   var body: some Scene {
       WindowGroup {

@@ -10,9 +10,7 @@ import SwiftUI
 
 struct MapView: View {
   @StateObject var locationManager: LocationManager = .init()
-  @StateObject var mapViewModel: MapViewModel = .init(
-    api: APIService()
-  )
+  @StateObject var mapViewModel: MapViewModel = .init()
   // Gesture properties
   @State var offSet: CGFloat = 0
   @State var lastOffSet: CGFloat = 0

@@ -21,10 +21,10 @@ class RecordsViewModel: ObservableObject {
   @Published var nextPostcodeRequestURL: URL? = RecordType.postcode.apiEndpoint
   @Published var postcodeListFull = false
   
-  private let api: APIService
+  private let api: APIServiceType
   private var cancellables: Set<AnyCancellable> = []
   
-  init(api: APIService) {
+  init(api: APIServiceType = APIService()) {
     self.api = api
   }
   
