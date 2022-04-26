@@ -12,7 +12,7 @@ struct OverviewTabView: View {
   var body: some View {
       VStack {
         NavigationViewHeaderBlock()
-        OverviewContentBlockView(newCaseNum: recordsViewModel.newCases, totalCaseNum: recordsViewModel.activeCases, isLoading: $recordsViewModel.isLoading)
+        OverviewContentBlockView()
         Spacer()
       }
   }

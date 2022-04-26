@@ -15,6 +15,7 @@ class RecordsViewModel: ObservableObject {
   @Published var postcodeRecords: [Record] = []
   @Published var isLoading: Bool = false
   @Published var errorMessage: String? = nil
+  @Published var errorHappened: Bool = false
   @Published var newCases: Int = 0
   @Published var activeCases: Int = 0
   @Published var recordType: RecordType = .lga
@@ -36,7 +37,9 @@ class RecordsViewModel: ObservableObject {
       self?.isLoading = false
       switch completion {
       case .finished: break
-      case .failure(let error): self?.errorMessage = error.description
+      case .failure(let error):
+        self?.errorMessage = error.description
+        self?.errorHappened = true
       }
     } receiveValue: { [weak self] in
       self?.handleRecords(of: type, response: $0)
@@ -44,14 +47,21 @@ class RecordsViewModel: ObservableObject {
     .store(in: &cancellables)
   }
   
-  func asyncFetchRecords(of type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint) async {
+  func asyncFetchRecords(
+    of type: RecordType = .lga,
+    url: URL? = RecordType.lga.apiEndpoint
+    // Due to the shut down of VIC COVID data source API, this is a sample API service endpoint
+//    url: URL? = URL(string: "https://jsonkeeper.com/b/2RWK")
+  ) async {
     isLoading = true
     do {
       let response: Response = try await api.asyncFetch(url)
       self.isLoading = false
       handleRecords(of: type, response: response)
     } catch {
+      self.isLoading = false
       self.errorMessage = error.localizedDescription
+      self.errorHappened = true
     }
   }
   

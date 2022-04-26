@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct OverviewContentBlockView: View {
-  let newCaseNum: Int
-  let totalCaseNum: Int
-  @Binding var isLoading: Bool
+  @EnvironmentObject var recordsViewModel: RecordsViewModel
   var body: some View {
     ZStack(alignment: .leading) {
       Color(hex: "#014EA8")
       VStack(alignment: .leading, spacing: 16) {
         header
         HStack {
-          NumberBlock(num: newCaseNum, description: "new cases", isLoading: $isLoading)
-          NumberBlock(num: totalCaseNum, description: "total cases", isLoading: $isLoading)
+          NumberBlock(
+            num: recordsViewModel.newCases,
+            description: "new cases",
+            isLoading: $recordsViewModel.isLoading,
+            errorHappened:  $recordsViewModel.errorHappened
+          )
+          NumberBlock(
+            num: recordsViewModel.activeCases,
+            description: "total cases",
+            isLoading: $recordsViewModel.isLoading,
+            errorHappened:  $recordsViewModel.errorHappened
+          )
         }
         .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
         Spacer()
@@ -29,6 +37,11 @@ struct OverviewContentBlockView: View {
     .background(Color(UIColor.systemGray2))
     .clipShape(RoundedRectangle(cornerRadius: 20))
     .padding(.all, 16)
+    .alert("Error", isPresented: $recordsViewModel.errorHappened, actions: {
+        // actions
+    }, message: {
+        Text(recordsViewModel.errorMessage ?? "")
+    })
   }
   
   private var header: some View {
