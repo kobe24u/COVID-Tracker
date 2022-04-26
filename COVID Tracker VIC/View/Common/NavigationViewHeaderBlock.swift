@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationViewHeaderBlock: View {
-  var date: Date = Date()
+  let date: Date = Date()
   
   var body: some View {
     VStack {

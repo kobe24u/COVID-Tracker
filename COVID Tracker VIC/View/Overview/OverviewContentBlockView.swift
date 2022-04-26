@@ -11,7 +11,7 @@ struct OverviewContentBlockView: View {
   @EnvironmentObject var recordsViewModel: RecordsViewModel
   var body: some View {
     ZStack(alignment: .leading) {
-      Color(hex: "#014EA8")
+      Color(hex: "#cdedfe")
       VStack(alignment: .leading, spacing: 16) {
         header
         HStack {
@@ -38,25 +38,32 @@ struct OverviewContentBlockView: View {
   private var header: some View {
     VStack(alignment: .leading, spacing: 16) {
       
-      Text("CORONAVIRUS(COVID-19) IN VICTORIA")
-        .font(.subheadline)
-        .foregroundColor(.white)
+      HStack {
+        Text("NSW COVID-19 update")
+          .font(.system(size: 23))
+          .fontWeight(.bold)
+          .foregroundColor(Color(hex: "#011d63"))
+        
+        Spacer()
+        
+        Image("nsw_logo")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(height: 50)
+      }
       
-      Text("LATEST NUMBERS")
-        .font(.title)
-        .foregroundColor(.white)
-        .fontWeight(.bold)
+      Divider()
     }
   }
   
   
   private var footer: some View {
     HStack {
-      Text("Call the 24/7 Hotline on 1800 675 398 \n Or visit www.dhhs.vic.gov.au/coronavirus")
+      Text("Call Service NSW 7am to 7pm, Monday to Friday and 9am to 5pm on weekends and public holidays on 137788")
         .font(.system(size: 10))
-        .foregroundColor(.white)
+        .foregroundColor(Color(hex: "#011d63"))
       Spacer()
-      Image("dhhsvic")
+      Image("nsw_health")
         .resizable()
         .aspectRatio(contentMode: .fit)
         .frame(height: 50)

@@ -13,7 +13,7 @@ struct NumberBlock: View {
   
   var body: some View {
     ZStack {
-      Color(hex: "#4276BB")
+      Color(hex: "#002764")
       VStack {
         Text("\(num)")
           .font(.system(size: 30, weight: .black, design: .monospaced))
