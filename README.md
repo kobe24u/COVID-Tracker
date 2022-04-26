@@ -11,6 +11,10 @@ Features:
 - MVVM
 - Core Location
 
+> [Update 25 April, 2022] 
+> Victoria Government has shut down the API service, so :man-shrugging.
+![warning](https://s7.gifyu.com/images/Simulator-Screen-Shot---iPhone-13-Pro---2022-04-26-at-12.48.05.png)
+
 ## Demo
 | Search cases in List | Search Test sites & Vax Centres in Map |
 | --- | --- |
