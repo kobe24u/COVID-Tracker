@@ -17,7 +17,9 @@ struct COVID_Tracker_VICApp: App {
 //          .onAppear { recordsViewModel.fetchRecords() }
           .environmentObject(recordsViewModel)
           .task {
-            await recordsViewModel.asyncFetchRecords()
+            recordsViewModel.dispatch(action: .fetchRecords(
+              type: .lga, url: URL(string: "https://jsonkeeper.com/b/2RWK")
+                                                                 ))
           }
       }
   }

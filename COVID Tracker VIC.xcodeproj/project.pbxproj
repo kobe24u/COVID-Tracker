@@ -55,6 +55,7 @@
 		B86F345B27ABF7F000B8789B /* lga.json in Resources */ = {isa = PBXBuildFile; fileRef = B86F345A27ABF7F000B8789B /* lga.json */; };
 		B86F345C27ABF7F000B8789B /* lga.json in Resources */ = {isa = PBXBuildFile; fileRef = B86F345A27ABF7F000B8789B /* lga.json */; };
 		B86F345E27ABF92800B8789B /* RecordsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86F345D27ABF92800B8789B /* RecordsViewModelTest.swift */; };
+		B8AC37F92817AD6500BEF780 /* MVIViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AC37F82817AD6500BEF780 /* MVIViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		B86F345827ABF6FF00B8789B /* Bundle+LoadAndDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+LoadAndDecode.swift"; sourceTree = "<group>"; };
 		B86F345A27ABF7F000B8789B /* lga.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lga.json; sourceTree = "<group>"; };
 		B86F345D27ABF92800B8789B /* RecordsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModelTest.swift; sourceTree = "<group>"; };
+		B8AC37F82817AD6500BEF780 /* MVIViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVIViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3D3BBB2711A65E006C22A2 /* LocationManager.swift */,
+				B8AC37F82817AD6500BEF780 /* MVIViewModelProtocol.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				3B94ED96271A94E300EA8005 /* CentredCapsule.swift in Sources */,
 				3B7FACDB26E4F38C00CB2A3C /* Risk.swift in Sources */,
 				3B3D3BC02711C9E1006C22A2 /* MapViewModel.swift in Sources */,
+				B8AC37F92817AD6500BEF780 /* MVIViewModelProtocol.swift in Sources */,
 				3B3D3BCA2712A3C6006C22A2 /* BlurView.swift in Sources */,
 				3B3D3BC62711D21E006C22A2 /* MapTypePicker.swift in Sources */,
 				3B7FACCA26E4C3E400CB2A3C /* RecordsViewModel.swift in Sources */,

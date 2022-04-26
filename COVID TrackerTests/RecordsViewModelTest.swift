@@ -24,7 +24,10 @@ class RecordsViewModelTest: XCTestCase {
     @MainActor
     func testLoadingSampleRecords(){
         let expectation = XCTestExpectation(description: "API call")
-        recordsViewModel.fetchRecords()
+      Task {
+        await recordsViewModel.asyncFetchRecords()
+      }
+//        recordsViewModel.fetchRecords()
         recordsViewModel.$newCases
         .dropFirst()
         .sink { _ in expectation.fulfill()}

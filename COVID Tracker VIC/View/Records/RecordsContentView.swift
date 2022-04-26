@@ -11,12 +11,11 @@ struct RecordsContentView: View {
   @EnvironmentObject var recordsViewModel: RecordsViewModel
   
   var body: some View {
-    Group {
-      if recordsViewModel.errorMessage != nil {
-        ErrorView()
-      } else {
-        RecordsListView()
-      }
+    switch recordsViewModel.viewState {
+    case .loading: ProgressView()
+    case .error(let errMsg): ErrorView(errorMessage: errMsg)
+    case .results(_): RecordsListView()
+    case .idle: EmptyView()
     }
   }
 }

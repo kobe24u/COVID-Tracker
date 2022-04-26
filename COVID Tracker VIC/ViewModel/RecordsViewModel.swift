@@ -6,16 +6,29 @@
 //
 
 import Combine
-import Foundation
 import SwiftUI
 
-@MainActor
-class RecordsViewModel: ObservableObject {
+enum RecordsViewState: ViewState {
+  case idle
+  case loading
+  case error(message: String)
+  case results(records: [Record])
+}
+
+enum RecordsViewAction: Action {
+  case fetchRecords(type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint)
+}
+
+
+class RecordsViewModel: MVIViewModel {
+  typealias S = RecordsViewState
+  
+  typealias A = RecordsViewAction
+  @Published var viewState: RecordsViewState = .idle
+  
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
   @Published var postcodeRecords: [Record] = []
-  @Published var isLoading: Bool = false
-  @Published var errorMessage: String? = nil
-  @Published var errorHappened: Bool = false
+
   @Published var newCases: Int = 0
   @Published var activeCases: Int = 0
   @Published var recordType: RecordType = .lga
@@ -29,39 +42,48 @@ class RecordsViewModel: ObservableObject {
     self.api = api
   }
   
+  func reduce(currentState: RecordsViewState, action: RecordsViewAction) -> RecordsViewState {
+    switch action {
+    case .fetchRecords(_, _): return .loading
+    }
+  }
+  
+  func runSideEffect(action: RecordsViewAction, currentState: RecordsViewState) {
+    switch action {
+    case .fetchRecords(let type, let url):
+      Task{
+        await asyncFetchRecords(of: type, url: url)
+      }
+    }
+  }
+  
+  /*
+  // Combine Style Async call
   func fetchRecords(of type: RecordType = .lga, url: URL? = RecordType.lga.apiEndpoint) {
-    isLoading = true
     let sub: AnyPublisher<Response, APIError> = api.fetch(url)
     sub
     .sink { [weak self] completion in
-      self?.isLoading = false
       switch completion {
       case .finished: break
       case .failure(let error):
-        self?.errorMessage = error.description
-        self?.errorHappened = true
+        self?.viewState = .error(message: error.description)
       }
     } receiveValue: { [weak self] in
       self?.handleRecords(of: type, response: $0)
     }
     .store(in: &cancellables)
   }
+   */
   
   func asyncFetchRecords(
     of type: RecordType = .lga,
     url: URL? = RecordType.lga.apiEndpoint
-    // Due to the shut down of VIC COVID data source API, this is a sample API service endpoint
-//    url: URL? = URL(string: "https://jsonkeeper.com/b/2RWK")
   ) async {
-    isLoading = true
     do {
       let response: Response = try await api.asyncFetch(url)
-      self.isLoading = false
       handleRecords(of: type, response: response)
     } catch {
-      self.isLoading = false
-      self.errorMessage = error.localizedDescription
-      self.errorHappened = true
+      self.viewState = .error(message: error.localizedDescription)
     }
   }
   
@@ -91,5 +113,6 @@ class RecordsViewModel: ObservableObject {
   private func calculateNumbers(of records: [Record]) {
     newCases = records.map { $0.newCasesInt }.reduce(0, +)
     activeCases = records.map { $0.activeCasesInt }.reduce(0, +)
+    self.viewState = .results(records: records)
   }
 }

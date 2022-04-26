@@ -17,15 +17,11 @@ struct OverviewContentBlockView: View {
         HStack {
           NumberBlock(
             num: recordsViewModel.newCases,
-            description: "new cases",
-            isLoading: $recordsViewModel.isLoading,
-            errorHappened:  $recordsViewModel.errorHappened
+            description: "new cases"
           )
           NumberBlock(
             num: recordsViewModel.activeCases,
-            description: "total cases",
-            isLoading: $recordsViewModel.isLoading,
-            errorHappened:  $recordsViewModel.errorHappened
+            description: "total cases"
           )
         }
         .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
@@ -37,11 +33,6 @@ struct OverviewContentBlockView: View {
     .background(Color(UIColor.systemGray2))
     .clipShape(RoundedRectangle(cornerRadius: 20))
     .padding(.all, 16)
-    .alert("Error", isPresented: $recordsViewModel.errorHappened, actions: {
-        // actions
-    }, message: {
-        Text(recordsViewModel.errorMessage ?? "")
-    })
   }
   
   private var header: some View {
