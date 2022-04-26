@@ -28,12 +28,14 @@ class RecordsViewModel: MVIViewModel {
   
   @Published var lgaRecordsSectionDictionary: Dictionary<String, [Record]> = [:]
   @Published var postcodeRecords: [Record] = []
+  @Published var lgaRecords: [Record] = []
 
   @Published var newCases: Int = 0
   @Published var activeCases: Int = 0
   @Published var recordType: RecordType = .lga
   @Published var nextPostcodeRequestURL: URL? = RecordType.postcode.apiEndpoint
   @Published var postcodeListFull = false
+  @Published var lgaListFull = false
   
   private let api: APIServiceType
   private var cancellables: Set<AnyCancellable> = []
@@ -81,20 +83,25 @@ class RecordsViewModel: MVIViewModel {
   ) async {
     do {
       let response: Response = try await api.asyncFetch(url)
-      handleRecords(of: type, response: response)
+      await handleRecords(of: type, response: response)
     } catch {
       self.viewState = .error(message: error.localizedDescription)
     }
   }
   
-  private func handleRecords(of type: RecordType, response: Response) {
+  private func handleRecords(of type: RecordType, response: Response) async {
     if type == .lga {
-      self.lgaRecordsSectionDictionary = self.getSectionedRecordsDictionary(records: response.result.records)
-      self.calculateNumbers(of: response.result.records)
+      self.lgaRecords.append(contentsOf: response.result.records)
+      guard self.lgaRecords.count >= response.result.total else {
+        await self.asyncFetchRecords(of: type, url: URL(string: baseURLString + response.result._links.next))
+        return
+      }
+      self.lgaRecordsSectionDictionary = self.getSectionedRecordsDictionary(records: self.lgaRecords)
+      self.calculateNumbers(of: self.lgaRecords)
     } else {
       self.nextPostcodeRequestURL = URL(string: baseURLString + response.result._links.next)
       self.postcodeRecords.append(contentsOf: response.result.records)
-      self.postcodeRecords.sort { $0.postCodeString < $1.postCodeString }
+      self.postcodeRecords.sort { $0.postcode < $1.postcode }
       let currentPostcodeRecordsCount = self.postcodeRecords.count
       guard currentPostcodeRecordsCount >= response.result.total else { return }
       self.postcodeListFull = true
@@ -112,7 +119,7 @@ class RecordsViewModel: MVIViewModel {
   
   private func calculateNumbers(of records: [Record]) {
     newCases = records.map { $0.newCasesInt }.reduce(0, +)
-    activeCases = records.map { $0.activeCasesInt }.reduce(0, +)
     self.viewState = .results(records: records)
+    self.lgaListFull = true
   }
 }

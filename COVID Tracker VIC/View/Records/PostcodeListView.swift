@@ -12,7 +12,7 @@ struct PostcodeListView: View {
   @EnvironmentObject var recordsViewModel: RecordsViewModel
   var filteredPostcodeList: [Record] {
     recordsViewModel.postcodeRecords.filter {
-            searchItem.isEmpty ? true : $0.postCodeString.starts(with: searchItem)
+            searchItem.isEmpty ? true : $0.postcode.starts(with: searchItem)
     }
   }
   var body: some View {
@@ -20,7 +20,7 @@ struct PostcodeListView: View {
       LazyVStack {
         ForEach(filteredPostcodeList.indices, id: \.self) { index in
           let record = filteredPostcodeList[index]
-          ListRow(record: record, titleString: record.postCodeString)
+          ListRow(record: record, titleString: record.postcode)
 //          .onAppear {
 //              if index == filteredPostcodeList.count - 5 &&
 //                    filteredPostcodeList.count == recordsViewModel.postcodeRecords.count && recordsViewModel.postcodeListFull == false {

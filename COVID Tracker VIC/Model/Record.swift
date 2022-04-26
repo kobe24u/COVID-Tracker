@@ -22,23 +22,17 @@ struct Link: Codable {
 }
 
 struct Record: Codable, Identifiable {
-  let _id: Int
-  let new: String
-  let data_date: String
-  let file_processed_date: String
-  let active: String
-  let cases: String
-  let LGA: String?
-  let LGADisplay: String?
-  let postcode: String?
-  
+  let notification_date: String
+  let confirmed_cases_count: String
+  let lga_name19: String
+  let confirmed_by_pcr: String
+  let postcode: String
+
   // Computed Properties
-  var id: Int { _id }
-  var newCasesInt: Int { Int(new) ?? 0 }
-  var activeCasesInt: Int { Int(active) ?? 0 }
-  var lgaString: String { LGADisplay ?? LGA ?? "" }
-  var postCodeString: String { postcode ?? "" }
-  var recordedDate: Date { data_date.toDate() ?? Date.daysAgo(value: 1)}
-  var announcedDate: Date { file_processed_date.toDate() ?? Date.today }
-  var riskLevel: Risk { Risk.riskAssessment(of: newCasesInt) } 
+  var id: String { UUID().uuidString }
+  var pcr: Bool { confirmed_by_pcr == "Yes" ? true : false }
+  var newCasesInt: Int { Int(confirmed_cases_count) ?? 0 }
+  var lgaString: String { lga_name19 + " " +  postcode }
+  var recordedDate: Date { notification_date.toDate() ?? Date.daysAgo(value: 1)}
+  var riskLevel: Risk { Risk.riskAssessment(of: newCasesInt) }
 }

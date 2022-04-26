@@ -23,4 +23,11 @@ extension Date {
     dateFormatter.timeZone = TimeZone(identifier: "Australia/Melbourne")
     return dateFormatter.string(from: self)
   }
+  
+  func toQueryString() -> String {
+    let dateFormatter : DateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.timeZone = TimeZone(identifier: "Australia/Melbourne")
+    return dateFormatter.string(from: self)
+  }
 }
