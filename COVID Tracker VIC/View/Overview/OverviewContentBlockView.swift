@@ -14,18 +14,22 @@ struct OverviewContentBlockView: View {
       Color(hex: "#cdedfe")
       VStack(alignment: .leading, spacing: 16) {
         header
+        NumberBlock(
+          num: recordsViewModel.newCases,
+          description: "positive cases reported in the past 24 hours"
+        )
         HStack {
           NumberBlock(
-            num: recordsViewModel.newCases,
-            description: "new cases"
+            num: recordsViewModel.ratCases,
+            description: "RAT"
           )
           NumberBlock(
-            num: recordsViewModel.activeCases,
-            description: "total cases"
+            num: recordsViewModel.pcrCases,
+            description: "PCR"
           )
         }
-        .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
         Spacer()
+          .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
         footer
       }
       .padding()

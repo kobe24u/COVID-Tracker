@@ -31,7 +31,8 @@ class RecordsViewModel: MVIViewModel {
   @Published var lgaRecords: [Record] = []
 
   @Published var newCases: Int = 0
-  @Published var activeCases: Int = 0
+  @Published var pcrCases: Int = 0
+  @Published var ratCases: Int = 0
   @Published var recordType: RecordType = .lga
   @Published var nextPostcodeRequestURL: URL? = RecordType.postcode.apiEndpoint
   @Published var postcodeListFull = false
@@ -119,6 +120,8 @@ class RecordsViewModel: MVIViewModel {
   
   private func calculateNumbers(of records: [Record]) {
     newCases = records.map { $0.newCasesInt }.reduce(0, +)
+    pcrCases = records.filter { $0.pcr }.map { $0.newCasesInt }.reduce(0, +)
+    ratCases = records.filter { !$0.pcr }.map { $0.newCasesInt }.reduce(0, +)
     self.viewState = .results(records: records)
     self.lgaListFull = true
   }

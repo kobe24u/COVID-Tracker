@@ -16,10 +16,11 @@ struct NumberBlock: View {
       Color(hex: "#002764")
       VStack {
         Text("\(num)")
-          .font(.system(size: 30, weight: .black, design: .monospaced))
+          .font(.system(size: 40, weight: .black, design: .monospaced))
           .foregroundColor(.white)
         
         Text(description)
+          .multilineTextAlignment(.center)
           .foregroundColor(.white)
       }
     }
